@@ -12,5 +12,11 @@ public class EncryptResponse {
 
   private String encryptedMessage;
 
+  private Integer blockSize;
+
+  private List<Integer> permutation;
+
+  private Integer shift;
+
   private List<AuditStep> audit;
 }
