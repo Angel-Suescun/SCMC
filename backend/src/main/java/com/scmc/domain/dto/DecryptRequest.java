@@ -1,5 +1,11 @@
 package com.scmc.domain.dto;
 
-public class DecryptRequest {
+import java.util.List;
 
+public record DecryptRequest (
+    String  encryptedMessage,
+    Integer blockSize,
+    List<Integer> permutation,
+    Integer shift
+){
 }
