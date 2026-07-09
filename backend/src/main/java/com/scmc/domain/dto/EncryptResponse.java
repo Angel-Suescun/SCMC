@@ -1,5 +1,6 @@
 package com.scmc.domain.dto;
 
+import com.scmc.domain.dto.audit.AuditStep;
 import java.util.List;
 
 public class EncryptResponse {

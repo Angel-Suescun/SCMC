@@ -49,7 +49,6 @@ public class EncryptService {
 
     return new EncryptResponseBuilder()
         .setOriginalMessage(request.message())
-        .setPaddedMessage(permutedMessage)
         .setPermutedMessage(permutedMessage)
         .setEncryptedMessage(encryptedMessage)
         .setBlockSize(request.blockSize())
@@ -58,3 +57,4 @@ public class EncryptService {
         .build();
   }
 }
+

@@ -1,58 +1,70 @@
 package com.scmc.domain.builder;
 
-import com.scmc.domain.dto.AuditStep;
+import com.scmc.domain.dto.audit.AuditStep;
 import java.util.List;
 import com.scmc.domain.dto.EncryptResponse;
 
 public class EncryptResponseBuilder {
 
-  private final EncryptResponse encryptResponse;
-
-  public EncryptResponseBuilder() {
-    this.encryptResponse = new EncryptResponse();
-  }
+  private String originalMessage;
+  private String paddedMessage;
+  private String permutedMessage;
+  private String encryptedMessage;
+  private Integer blockSize;
+  private List<Integer> permutation;
+  private Integer shift;
+  private List<AuditStep> audit;
 
   public EncryptResponseBuilder setOriginalMessage(String originalMessage) {
-    this.encryptResponse.setOriginalMessage(originalMessage);
+    this.originalMessage = originalMessage;
     return this;
   }
 
   public EncryptResponseBuilder setPaddedMessage(String paddedMessage) {
-    this.encryptResponse.setPaddedMessage(paddedMessage);
+    this.paddedMessage = paddedMessage;
     return this;
   }
 
   public EncryptResponseBuilder setPermutedMessage(String permutedMessage) {
-    this.encryptResponse.setPermutedMessage(permutedMessage);
+    this.permutedMessage = permutedMessage;
     return this;
   }
 
   public EncryptResponseBuilder setEncryptedMessage(String encryptedMessage) {
-    this.encryptResponse.setEncryptedMessage(encryptedMessage);
+    this.encryptedMessage = encryptedMessage;
     return this;
   }
 
   public EncryptResponseBuilder setBlockSize(Integer blockSize) {
-    this.encryptResponse.setBlockSize(blockSize);
+    this.blockSize = blockSize;
     return this;
   }
 
   public EncryptResponseBuilder setPermutation(List<Integer> permutation) {
-    this.encryptResponse.setPermutation(permutation);
+    this.permutation = permutation;
     return this;
   }
 
   public EncryptResponseBuilder setShift(Integer shift) {
-    this.encryptResponse.setShift(shift);
+    this.shift = shift;
     return this;
   }
 
   public EncryptResponseBuilder setAudit(List<AuditStep> audit) {
-    this.encryptResponse.setAudit(audit);
+    this.audit = audit;
     return this;
   }
 
   public EncryptResponse build() {
-    return this.encryptResponse;
+    return new EncryptResponse(
+        originalMessage,
+        paddedMessage,
+        permutedMessage,
+        encryptedMessage,
+        blockSize,
+        permutation,
+        shift,
+        audit
+    );
   }
 }

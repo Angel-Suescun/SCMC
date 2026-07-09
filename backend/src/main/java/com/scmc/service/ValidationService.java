@@ -1,5 +1,6 @@
 package com.scmc.service;
 
+import com.scmc.domain.dto.DecryptRequest;
 import com.scmc.domain.dto.EncryptRequest;
 import com.scmc.domain.dto.constants.CipherConstants;
 import java.util.HashSet;
@@ -14,10 +15,13 @@ public class ValidationService {
     if (message == null || message.isEmpty()) {
       throw new IllegalArgumentException("El mensaje no puede estar vacío");
     }
+  }
 
+  public void validatePaddingCharacter(String message) {
     if (message.indexOf(CipherConstants.PADDING_CHARACTER) >= 0) {
       throw new IllegalArgumentException(
-          "El mensaje no puede contener el carácter de relleno: " + CipherConstants.PADDING_CHARACTER
+          "El mensaje no puede contener el carácter de relleno: "
+              + CipherConstants.PADDING_CHARACTER
       );
     }
   }
@@ -76,13 +80,14 @@ public class ValidationService {
 
   public void validateEncryptRequest(EncryptRequest request) {
     validateMessage(request.message());
+    validatePaddingCharacter(request.message());
     validateBlockSize(request.blockSize(), request.message().length());
     validatePermutation(request.permutation(), request.blockSize());
   }
 
-//  public void validateDecryptRequest(DecryptRequest request) {
-//    validateMessage(request.getMessage());
-//    validateBlockSize(blockSize, encryptedMessage.length());
-//    validatePermutation(permutation, blockSize);
-//  }
+  public void validateDecryptRequest(DecryptRequest request) {
+    validateMessage(request.encryptedMessage());
+    validateBlockSize(request.blockSize(), request.encryptedMessage().length());
+    validatePermutation(request.permutation(), request.blockSize());
+  }
 }
