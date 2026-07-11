@@ -4,7 +4,7 @@ public class AuditStep {
 
   private Integer stepNumber;
 
-  private AuditStep title;
+  private AuditType title;
 
   private String description;
 
@@ -17,7 +17,7 @@ public class AuditStep {
 
   public AuditStep(
     Integer stepNumber,
-    AuditStep title,
+    AuditType title,
     String description,
     String input,
     String output
@@ -37,11 +37,11 @@ public class AuditStep {
     this.stepNumber = stepNumber;
   }
 
-  public AuditStep getTitle() {
+  public AuditType getTitle() {
     return this.title;
   }
 
-  public void setTitle(AuditStep title) {
+  public void setTitle(AuditType title) {
     this.title = title;
   }
 

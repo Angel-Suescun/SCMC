@@ -4,6 +4,7 @@ import com.scmc.domain.builder.DecryptResponseBuilder;
 import com.scmc.domain.dto.DecryptRequest;
 import com.scmc.domain.dto.DecryptResponse;
 import com.scmc.service.algorithm.ModularDecryptService;
+import com.scmc.service.algorithm.PaddingDecryptService;
 import com.scmc.service.algorithm.PermutationDecryptService;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +19,20 @@ public class DecryptService {
 
   private final PermutationDecryptService permutationDecryptService;
 
+  private final PaddingDecryptService paddingDecryptService;
+
   public DecryptService(
       ValidationService validationService,
       ShiftService shiftService,
       ModularDecryptService modularDecryptService,
-      PermutationDecryptService permutationDecryptService) {
+      PermutationDecryptService permutationDecryptService,
+      PaddingDecryptService paddingDecryptService
+  ) {
     this.validationService = validationService;
     this.shiftService = shiftService;
     this.modularDecryptService = modularDecryptService;
     this.permutationDecryptService = permutationDecryptService;
+    this.paddingDecryptService = paddingDecryptService;
   }
 
   public DecryptResponse decrypt(DecryptRequest request) {
@@ -40,11 +46,13 @@ public class DecryptService {
         normalizedShift
     );
 
-    String decryptedMessage = permutationDecryptService.decrypt(
+    String paddedMessage = permutationDecryptService.decrypt(
         permutedMessage,
         request.permutation(),
         request.blockSize()
     );
+
+    String decryptedMessage = paddingDecryptService.decrypt(paddedMessage);
 
     return new DecryptResponseBuilder()
         .setEncryptedMessage(request.encryptedMessage())

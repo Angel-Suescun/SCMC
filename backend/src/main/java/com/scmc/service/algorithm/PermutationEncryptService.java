@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PermutationEncryptService {
 
-  public String encrypt(String message, List<Integer> permutation, Integer blockSize) {
-
-    String paddedMessage = addPadding(message, blockSize);
+  public String encrypt(String paddedMessage, List<Integer> permutation, Integer blockSize) {
 
     List<String> blocks = splitIntoBlocks(paddedMessage, blockSize);
 
@@ -22,17 +20,6 @@ public class PermutationEncryptService {
 
     return encryptedMessage.toString();
 
-  }
-
-  private String addPadding(String message, Integer blockSize) {
-
-    StringBuilder paddedMessage = new StringBuilder(message);
-
-    while (paddedMessage.length() % blockSize != 0) {
-      paddedMessage.append(CipherConstants.PADDING_CHARACTER);
-    }
-
-    return paddedMessage.toString();
   }
 
   private List<String> splitIntoBlocks(String message, Integer blockSize) {

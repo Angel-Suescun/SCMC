@@ -21,13 +21,13 @@ public class PermutationDecryptService {
 
     List<Integer> inversePermutation = buildInversePermutation(permutation);
 
-    StringBuilder decryptedMessage = new StringBuilder();
+    StringBuilder paddedMessage = new StringBuilder();
 
     for (String block : blocks) {
-      decryptedMessage.append(applyInversePermutation(block, inversePermutation));
+      paddedMessage.append(applyInversePermutation(block, inversePermutation));
     }
 
-    return removePadding(decryptedMessage.toString());
+    return paddedMessage.toString();
   }
 
   private List<String> splitIntoBlocks(String message,Integer blockSize) {
@@ -65,9 +65,4 @@ public class PermutationDecryptService {
     return result.toString();
   }
 
-  private String removePadding(String message) {
-
-    return message.replaceAll(Pattern.quote(String.valueOf(
-        CipherConstants.PADDING_CHARACTER) + "+$"), "");
-  }
 }
