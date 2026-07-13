@@ -7,6 +7,7 @@ public class DecryptResponseBuilder {
 
   private String encryptedMessage;
   private String permutedMessage;
+  private String paddedMessage;
   private String decryptedMessage;
   private Integer blockSize;
   private java.util.List<Integer> permutation;
@@ -21,6 +22,15 @@ public class DecryptResponseBuilder {
   public DecryptResponseBuilder setPermutedMessage(String permutedText) {
     this.permutedMessage = permutedText;
     return this;
+  }
+
+  public DecryptResponseBuilder setPaddedMessage(String paddedMessage) {
+    this.paddedMessage = paddedMessage;
+    return this;
+  }
+
+  public String getPaddedMessage() {
+    return paddedMessage;
   }
 
   public DecryptResponseBuilder setDecryptedMessage(String decryptedMessage) {
@@ -53,6 +63,7 @@ public class DecryptResponseBuilder {
     return new DecryptResponse(
         encryptedMessage,
         permutedMessage,
+        paddedMessage,
         decryptedMessage,
         blockSize,
         permutation,

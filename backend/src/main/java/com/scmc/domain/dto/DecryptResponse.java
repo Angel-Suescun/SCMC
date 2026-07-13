@@ -9,6 +9,8 @@ public class DecryptResponse {
 
   private String permutedMessage;
 
+  private String paddedMessage;
+
   private String decryptedMessage;
 
   private Integer blockSize;
@@ -24,7 +26,8 @@ public class DecryptResponse {
 
   public DecryptResponse(
     String encryptedMessage,
-    String modularDecryptedMessage,
+    String permutedMessage,
+    String paddedMessage,
     String decryptedMessage,
     Integer blockSize,
     List<Integer> permutation,
@@ -32,7 +35,8 @@ public class DecryptResponse {
     List<AuditStep> audit
   ){
     this.encryptedMessage = encryptedMessage;
-    this.permutedMessage = modularDecryptedMessage;
+    this.permutedMessage = permutedMessage;
+    this.paddedMessage = paddedMessage;
     this.decryptedMessage = decryptedMessage;
     this.blockSize = blockSize;
     this.permutation = permutation;
@@ -54,6 +58,14 @@ public class DecryptResponse {
 
   public void setPermutedMessage(String modularDecryptedMessage) {
     this.permutedMessage = modularDecryptedMessage;
+  }
+
+  public void setPaddedMessage(String paddedMessage) {
+    this.paddedMessage = paddedMessage;
+  }
+
+  public String getPaddedMessage() {
+    return paddedMessage;
   }
 
   public String getDecryptedMessage() {

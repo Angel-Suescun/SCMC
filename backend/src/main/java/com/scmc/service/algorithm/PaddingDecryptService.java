@@ -10,7 +10,9 @@ public class PaddingDecryptService {
 
   public String decrypt(String message) {
 
-    return message.replaceAll(Pattern.quote(String.valueOf(
-        CipherConstants.PADDING_CHARACTER) + "+$"), "");
+    return message.replaceAll(
+        Pattern.quote(String.valueOf(CipherConstants.PADDING_CHARACTER)) + "+$",
+        ""
+    );
   }
 }

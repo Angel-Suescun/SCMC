@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EncryptAuditService {
+public class DecryptAuditService {
 
   private final PaddingAuditService paddingAuditService;
 
@@ -14,50 +14,58 @@ public class EncryptAuditService {
 
   private final ModularAuditService modularAuditService;
 
-  public EncryptAuditService(
+  public DecryptAuditService(
       PaddingAuditService paddingAuditService,
       PermutationAuditService permutationAuditService,
       ModularAuditService modularAuditService
   ) {
-
     this.paddingAuditService = paddingAuditService;
     this.permutationAuditService = permutationAuditService;
     this.modularAuditService = modularAuditService;
-
   }
 
   public List<AuditStep> buildAuditSteps(
-    String originalMessage,
-    String paddedMessage,
-    String permutedMessage,
-    String encryptedMessage,
-    Integer blockSize,
-    List<Integer> permutation,
-    Integer shift
-    ){
+      String encryptedMessage,
+      String permutedMessage,
+      String paddedMessage,
+      String decryptedMessage,
+      Integer blockSize,
+      List<Integer> permutation,
+      Integer shift
+  ) {
 
     AuditStepCounterService counter = new AuditStepCounterService();
 
     List<AuditStep> auditSteps = new ArrayList<>();
 
-    auditSteps.add(paddingAuditService.createEncryptAuditStep(counter, originalMessage, paddedMessage));
-
-    auditSteps.add(permutationAuditService.createEncryptAuditStep(
-        counter,
-        paddedMessage,
-        permutedMessage,
-        blockSize,
-        permutation
-    ));
+    auditSteps.add(
+        modularAuditService.createDecryptAuditStep(
+            counter,
+            encryptedMessage,
+            permutedMessage,
+            shift
+        )
+    );
 
     auditSteps.add(
-        modularAuditService.createEncryptAuditStep(
+        permutationAuditService.createDecryptAuditStep(
             counter,
             permutedMessage,
-            encryptedMessage,
-            shift
-    ));
+            paddedMessage,
+            blockSize,
+            permutation
+        ));
+
+    auditSteps.add(
+        paddingAuditService.createDecryptAuditStep(
+            counter,
+            paddedMessage,
+            decryptedMessage
+        )
+    );
 
     return auditSteps;
-}
+  }
+
+
 }

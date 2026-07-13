@@ -77,11 +77,13 @@ public class EncryptService {
 
     return new EncryptResponseBuilder()
         .setOriginalMessage(request.message())
+        .setPaddedMessage(paddedMessage)
         .setPermutedMessage(permutedMessage)
         .setEncryptedMessage(encryptedMessage)
         .setBlockSize(request.blockSize())
         .setPermutation(request.permutation())
         .setShift(normalizedShift)
+        .setAudit(audit)
         .build();
   }
 }

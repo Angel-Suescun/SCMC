@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PaddingAuditService{
 
-  public AuditStep createAuditStep(
+  public AuditStep createEncryptAuditStep(
       AuditStepCounterService counterService,
       String originalMessage,
       String paddedMessage
@@ -17,15 +17,36 @@ public class PaddingAuditService{
     return new AuditStepBuilder()
         .setStepNumber(counterService.incrementStepCounter())
         .setTitle(AuditType.RELLENO)
-        .setDescription(buildDescription())
+        .setDescription(buildDescriptionForEncrypt())
         .setInput(originalMessage)
         .setOutput(paddedMessage)
         .build();
   }
 
-  private String buildDescription() {
+  public AuditStep createDecryptAuditStep(
+      AuditStepCounterService counterService,
+      String paddedMessage,
+      String originalMessage
+  ) {
+    return new AuditStepBuilder()
+        .setStepNumber(counterService.incrementStepCounter())
+        .setTitle(AuditType.RELLENO)
+        .setDescription(buildDescriptionForDecrypt())
+        .setInput(paddedMessage)
+        .setOutput(originalMessage)
+        .build();
+  }
+
+  private String buildDescriptionForEncrypt() {
     return String.format(
-        "Se ha aplicado un relleno al mensaje original utilizando el carácter '%c'.",
+        "Se completó el último bloque utilizando el carácter de relleno '%c' cuando fue necesario.",
+        CipherConstants.PADDING_CHARACTER
+    );
+  }
+
+  private String buildDescriptionForDecrypt() {
+    return String.format(
+        "Se ha eliminado el relleno del mensaje utilizando el carácter '%c'.",
         CipherConstants.PADDING_CHARACTER
     );
   }

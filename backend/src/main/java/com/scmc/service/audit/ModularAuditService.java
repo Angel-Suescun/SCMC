@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ModularAuditService {
 
-  public AuditStep createAuditStep(
+  public AuditStep createEncryptAuditStep(
     AuditStepCounterService counterService,
     String permutedMessage,
     String encryptedMessage,
@@ -18,7 +18,7 @@ public class ModularAuditService {
     return new AuditStepBuilder()
         .setStepNumber(counterService.incrementStepCounter())
         .setTitle(AuditType.DESPLAZAMIENTO_MODULAR)
-        .setDescription(buildDescription(shift))
+        .setDescription(buildDescriptionForEncrypt(shift))
         .setInput(permutedMessage)
         .setOutput(encryptedMessage)
         .build();
@@ -26,11 +26,36 @@ public class ModularAuditService {
 
   }
 
-  private String buildDescription(Integer shift) {
+  public AuditStep createDecryptAuditStep(
+    AuditStepCounterService counterService,
+    String encryptedMessage,
+    String decryptedMessage,
+    Integer shift
+  ) {
+
+    return new AuditStepBuilder()
+        .setStepNumber(counterService.incrementStepCounter())
+        .setTitle(AuditType.DESPLAZAMIENTO_MODULAR_INVERSO)
+        .setDescription(buildDescriptionForDecrypt(shift))
+        .setInput(encryptedMessage)
+        .setOutput(decryptedMessage)
+        .build();
+  }
+
+  private String buildDescriptionForEncrypt(Integer shift) {
     return String.format(
         "Se ha aplicado un desplazamiento modular de %d posiciones a cada carácter del "
             + "mensaje permutado.",
         shift
     );
   }
+
+  private String buildDescriptionForDecrypt(Integer shift) {
+    return String.format(
+        "Se aplicó el desplazamiento modular inverso de %d posiciones "
+            + "a cada carácter del mensaje.",
+        shift
+    );
+  }
 }
+
