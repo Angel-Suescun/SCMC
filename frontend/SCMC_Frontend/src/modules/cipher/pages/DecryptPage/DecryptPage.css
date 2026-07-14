@@ -1,0 +1,61 @@
+.decrypt-page{
+
+    padding:2rem 0 4rem;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:2rem;
+
+}
+
+.decrypt-grid{
+
+    display:grid;
+
+    grid-template-columns:1.35fr 1fr;
+
+    align-items:start;
+
+    gap:2rem;
+
+}
+
+.decrypt-grid.stacked{
+
+    grid-template-columns:1fr;
+
+}
+
+.decrypt-error{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.75rem;
+
+    padding:1rem 1.25rem;
+
+    border-radius:12px;
+
+    background:rgba(239,68,68,.12);
+
+    border:1px solid rgba(239,68,68,.25);
+
+    color:#FCA5A5;
+
+    font-weight:500;
+
+}
+
+@media(max-width:1100px){
+
+    .decrypt-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

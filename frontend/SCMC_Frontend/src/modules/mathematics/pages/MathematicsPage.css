@@ -1,0 +1,23 @@
+.mathematics-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8rem;
+
+    padding-block:3rem 5rem;
+
+}
+
+@media(max-width:768px){
+
+    .mathematics-page{
+
+        gap:5rem;
+
+        padding-block:2rem 4rem;
+
+    }
+
+}

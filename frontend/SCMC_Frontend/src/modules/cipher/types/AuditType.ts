@@ -1,0 +1,15 @@
+export const AuditType = {
+
+    RELLENO: "RELLENO",
+
+    PERMUTACION: "PERMUTACION",
+
+    DESPLAZAMIENTO_MODULAR: "DESPLAZAMIENTO_MODULAR",
+
+    DESPLAZAMIENTO_MODULAR_INVERSO: "DESPLAZAMIENTO_MODULAR_INVERSO",
+
+    DESPERMUTACION: "DESPERMUTACION"
+
+} as const;
+
+export type AuditType = typeof AuditType[keyof typeof AuditType];

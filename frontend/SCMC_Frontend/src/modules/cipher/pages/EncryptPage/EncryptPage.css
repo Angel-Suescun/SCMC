@@ -1,0 +1,75 @@
+.encrypt-page{
+
+    padding-top:6rem;
+
+    padding-bottom:5rem;
+
+}
+
+.encrypt-error{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.75rem;
+
+    margin:2rem 0;
+
+    padding:1rem 1.25rem;
+
+    border-radius:12px;
+
+    background:rgba(239,68,68,.12);
+
+    border:1px solid rgba(239,68,68,.35);
+
+    color:#FCA5A5;
+
+    font-weight:500;
+
+}
+
+.encrypt-error svg{
+
+    flex-shrink:0;
+
+}
+
+@media (max-width:992px){
+
+    .encrypt-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+.encrypt-grid{
+
+    display:grid;
+
+    grid-template-columns:7fr 5fr;
+
+    gap:2rem;
+
+    align-items:start;
+
+}
+
+.encrypt-grid.stacked{
+
+    grid-template-columns:1fr;
+
+}
+
+@media(max-width:1100px){
+
+    .encrypt-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

@@ -1,0 +1,67 @@
+:root {
+
+    --color-background: #0b1120;
+
+    --color-surface: #151d1d;
+
+    --color-surface-light: #232b2c;
+
+    --color-surface-hover: #2e3637;
+
+    --color-card: rgba(30, 41, 59, 0.70);
+
+    --color-primary: #00f5ff;
+
+    --color-primary-dark: #00dce5;
+
+    --color-primary-light: #63f7ff;
+
+    --color-secondary: #3a4a5f;
+
+    --color-success: #22c55e;
+
+    --color-warning: #eab308;
+
+    --color-error: #ef4444;
+
+    --text-primary: #ffffff;
+
+    --text-secondary: #dce4e4;
+
+    --text-muted: #9fb0b0;
+
+    --text-code: #63f7ff;
+
+    --border-color: rgba(255,255,255,.08);
+
+    --border-hover: rgba(0,245,255,.35);
+
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.15);
+
+    --shadow-md: 0 8px 24px rgba(0,0,0,.20);
+
+    --shadow-lg: 0 16px 40px rgba(0,0,0,.30);
+
+    --shadow-glow: 0 0 25px rgba(0,245,255,.20);
+
+    --glass-blur: 14px;
+
+    --radius-sm: 8px;
+
+    --radius-md: 14px;
+
+    --radius-lg: 20px;
+
+    --radius-xl: 28px;
+
+    --transition-fast: .20s ease;
+
+    --transition-normal: .30s ease;
+
+    --transition-slow: .45s ease;
+
+    --navbar-height: 72px;
+
+    --container-width: 1280px;
+
+}

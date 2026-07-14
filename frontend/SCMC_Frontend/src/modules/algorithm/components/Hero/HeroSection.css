@@ -1,0 +1,193 @@
+.implementation-hero{
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
+    gap:4rem;
+
+    align-items:center;
+
+}
+
+.implementation-hero__content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.5rem;
+
+}
+
+.implementation-hero__label{
+
+    width:max-content;
+
+    padding:.5rem 1rem;
+
+    border:1px solid rgba(0,245,255,.25);
+
+    border-radius:999px;
+
+    background:rgba(0,245,255,.08);
+
+    color:var(--primary);
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+.implementation-hero h1{
+
+    font-size:clamp(2.4rem,5vw,4.5rem);
+
+    line-height:1.1;
+
+    color:white;
+
+}
+
+.implementation-hero p{
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+    max-width:720px;
+
+}
+
+.implementation-hero__tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.75rem;
+
+}
+
+.implementation-hero__tags span{
+
+    padding:.6rem 1rem;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:.9rem;
+
+}
+
+.implementation-hero__visual{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.75rem;
+
+    padding:2rem;
+
+    border-radius:24px;
+
+}
+
+.flow-node{
+
+    width:180px;
+
+    padding:1rem;
+
+    text-align:center;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.flow-node:hover{
+
+    transform:translateY(-4px);
+
+    border-color:rgba(0,245,255,.35);
+
+}
+
+.flow-node.result{
+
+    background:rgba(0,245,255,.08);
+
+    border-color:rgba(0,245,255,.25);
+
+}
+
+.flow-arrow{
+
+    color:var(--primary);
+
+    font-size:1.2rem;
+
+    animation:floatArrow 2s ease-in-out infinite;
+
+}
+
+@keyframes floatArrow{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(5px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .implementation-hero{
+
+        grid-template-columns:1fr;
+
+        gap:3rem;
+
+    }
+
+    .implementation-hero__visual{
+
+        width:100%;
+
+    }
+
+}
