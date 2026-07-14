@@ -1,0 +1,29 @@
+.implementation-page{
+
+    width:min(1400px, calc(100% - 6rem));
+
+    margin-inline:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8rem;
+
+    padding-block:3rem 5rem;
+
+}
+
+@media(max-width:768px){
+
+    .implementation-page{
+
+        width:min(100%, calc(100% - 2rem));
+
+        gap:5rem;
+
+        padding-block:2rem 4rem;
+
+    }
+
+}

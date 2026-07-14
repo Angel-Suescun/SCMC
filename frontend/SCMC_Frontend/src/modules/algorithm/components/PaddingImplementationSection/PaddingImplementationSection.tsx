@@ -33,14 +33,14 @@ export default function PaddingImplementationSection() {
                 <h2>
 
                     Padding (Acolchamiento)
+
                 </h2>
 
                 <p>
 
-                    Antes de aplicar cualquier transformación, el mensaje debe
-                    tener una longitud divisible por el tamaño del bloque.
-                    Para lograrlo se agregan caracteres de relleno "~"
-                    hasta completar el múltiplo requerido.
+                    Antes de dividir el mensaje en bloques, su longitud debe
+                    ser múltiplo del tamaño definido. Para lograrlo, se agregan
+                    caracteres de relleno "~" hasta completar el bloque.
 
                 </p>
 
@@ -60,28 +60,34 @@ export default function PaddingImplementationSection() {
 
                         <h3>
 
-                            ¿Qué hace este código?
+                            Proceso realizado
 
                         </h3>
 
-                        <ul>
+                        <ul className="steps-list">
 
                             <li>
-                                Crea una copia modificable del mensaje.
+
+                                → Calcula la longitud actual del mensaje.
+
                             </li>
 
                             <li>
-                                Verifica si la longitud actual es múltiplo
-                                del tamaño de bloque.
+
+                                → Comprueba si es múltiplo del tamaño de bloque.
+
                             </li>
 
                             <li>
-                                Mientras no lo sea, agrega el carácter "~".
+
+                                → Agrega "~" mientras sea necesario.
+
                             </li>
 
                             <li>
-                                Devuelve el mensaje listo para dividirse
-                                en bloques iguales.
+
+                                → Devuelve un mensaje con bloques completos.
+
                             </li>
 
                         </ul>
@@ -96,27 +102,67 @@ export default function PaddingImplementationSection() {
 
                         </h3>
 
-                        <div className="example-row">
+                        <div className="padding-demo">
 
-                            <span>Mensaje</span>
+                            <div>
 
-                            <code>Hola</code>
+                                <span>
 
-                        </div>
+                                    Mensaje
 
-                        <div className="example-row">
+                                </span>
 
-                            <span>Block Size</span>
+                                <code>
 
-                            <code>8</code>
+                                    Hola
 
-                        </div>
+                                </code>
 
-                        <div className="example-row">
+                            </div>
 
-                            <span>Resultado</span>
+                            <span className="arrow">
 
-                            <code>Hola~~~~</code>
+                                ↓
+
+                            </span>
+
+                            <div>
+
+                                <span>
+
+                                    Block Size
+
+                                </span>
+
+                                <code>
+
+                                    8
+
+                                </code>
+
+                            </div>
+
+                            <span className="arrow">
+
+                                ↓
+
+                            </span>
+
+                            <div>
+
+                                <span>
+
+                                    Resultado
+
+                                </span>
+
+                                <code>
+
+                                    Hola~~~~
+
+                                </code>
+
+                            </div>
 
                         </div>
 
@@ -126,17 +172,21 @@ export default function PaddingImplementationSection() {
 
                         <h3>
 
-                            Interpretación matemática
+                            Regla matemática
 
                         </h3>
 
                         <pre>
 
-{`long = |mensaje|
+{`|mensaje| mod blockSize ≠ 0
 
-mientras(long mod blockSize ≠ 0)
+↓
 
-    mensaje = mensaje + "~"`}
+agregar "~"
+
+↓
+
+repetir hasta completar el bloque`}
 
                         </pre>
 

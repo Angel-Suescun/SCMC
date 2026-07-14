@@ -2,48 +2,7 @@ import "./PermutationImplementationSection.css";
 
 import CodeBlock from "../../../../shared/components/CodeBlock";
 
-
 const permutationCode = `public String encrypt(
-
-    String paddedMessage,
-
-    List<Integer> permutation,
-
-    Integer blockSize
-
-) {
-
-    List<String> blocks = splitIntoBlocks(
-
-        paddedMessage,
-
-        blockSize
-
-    );
-
-    StringBuilder result = new StringBuilder();
-
-    for (String block : blocks) {
-
-        result.append(
-
-            applyPermutation(
-
-                block,
-
-                permutation
-
-            )
-
-        );
-
-    }
-
-    return result.toString();
-
-}
-
-private String applyPermutation(
 
     String block,
 
@@ -89,10 +48,10 @@ export default function PermutationImplementationSection() {
 
                 <p>
 
-                    Una vez que el mensaje tiene bloques del mismo tamaño,
-                    cada bloque es reorganizado utilizando una permutación
-                    de índices. Los caracteres no cambian de valor, únicamente
-                    cambian de posición dentro del bloque.
+                    Después del padding, cada bloque es reorganizado
+                    mediante una permutación de índices. Los caracteres
+                    conservan su valor original, pero cambian de posición
+                    dentro del bloque.
 
                 </p>
 
@@ -112,41 +71,39 @@ export default function PermutationImplementationSection() {
 
                         <h3>
 
-                            ¿Qué hace este código?
+                            Proceso realizado
 
                         </h3>
 
-                        <ul>
+                        <ul className="steps-list">
 
                             <li>
 
-                                Divide el mensaje en bloques del tamaño definido.
+                                → Toma un bloque de caracteres.
 
                             </li>
 
                             <li>
 
-                                Recorre cada bloque de forma independiente.
+                                → Lee la secuencia de permutación.
 
                             </li>
 
                             <li>
 
-                                Utiliza la lista de índices para determinar
-                                el nuevo orden de los caracteres.
+                                → Reubica cada carácter según su índice.
 
                             </li>
 
                             <li>
 
-                                Construye un nuevo bloque reorganizado.
+                                → Construye un nuevo bloque ordenado.
 
                             </li>
 
                             <li>
 
-                                Une todos los bloques para obtener el mensaje
-                                permutado.
+                                → Devuelve el bloque permutado.
 
                             </li>
 
@@ -162,53 +119,69 @@ export default function PermutationImplementationSection() {
 
                         </h3>
 
-                        <div className="example-row">
+                        <div className="permutation-demo">
 
-                            <span>Bloque</span>
+                            <div>
 
-                            <code>Hola</code>
+                                <span>
+
+                                    Bloque
+
+                                </span>
+
+                                <code>
+
+                                    Hola
+
+                                </code>
+
+                            </div>
+
+                            <span className="arrow">
+
+                                ↓
+
+                            </span>
+
+                            <div>
+
+                                <span>
+
+                                    Permutación
+
+                                </span>
+
+                                <code>
+
+                                    [1,0,3,2]
+
+                                </code>
+
+                            </div>
+
+                            <span className="arrow">
+
+                                ↓
+
+                            </span>
+
+                            <div>
+
+                                <span>
+
+                                    Resultado
+
+                                </span>
+
+                                <code>
+
+                                    oHal
+
+                                </code>
+
+                            </div>
 
                         </div>
-
-                        <div className="example-row">
-
-                            <span>Permutación</span>
-
-                            <code>[1,0,3,2]</code>
-
-                        </div>
-
-                        <div className="example-row">
-
-                            <span>Resultado</span>
-
-                            <code>oHal</code>
-
-                        </div>
-
-                    </article>
-
-                    <article className="glass example-card">
-
-                        <h3>
-
-                            Aplicación de índices
-
-                        </h3>
-
-                        <pre>
-
-{`posición 0 → bloque[1] = o
-
-posición 1 → bloque[0] = H
-
-posición 2 → bloque[3] = a
-
-posición 3 → bloque[2] = l
-
-Resultado → oHal`}
-
-                        </pre>
 
                     </article>
 
@@ -216,27 +189,43 @@ Resultado → oHal`}
 
                         <h3>
 
-                            Interpretación matemática
+                            Regla de transformación
 
                         </h3>
 
                         <pre>
 
-{`nuevo_bloque[i]
-
-=
-
-bloque_original[permutacion[i]]`}
+{`nuevoBloque[i] = bloque[permutacion[i]]`}
 
                         </pre>
 
-                        <p>
+                        <div className="index-map">
 
-                            La transformación corresponde a una permutación
-                            de posiciones. Los elementos permanecen iguales,
-                            pero ocupan nuevas ubicaciones dentro del bloque.
+                            <div>
 
-                        </p>
+                                0 → bloque[1] = o
+
+                            </div>
+
+                            <div>
+
+                                1 → bloque[0] = H
+
+                            </div>
+
+                            <div>
+
+                                2 → bloque[3] = a
+
+                            </div>
+
+                            <div>
+
+                                3 → bloque[2] = l
+
+                            </div>
+
+                        </div>
 
                     </article>
 
