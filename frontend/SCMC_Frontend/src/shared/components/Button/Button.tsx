@@ -14,41 +14,86 @@ interface ButtonProps {
 
     disabled?: boolean;
 
+    loading?: boolean;
+
+    fullWidth?: boolean;
+
     icon?: ReactNode;
 
 }
 
 const Button = ({
+
     children,
+
     onClick,
+
     type = "button",
+
     variant = "primary",
+
     disabled = false,
+
+    loading = false,
+
+    fullWidth = false,
+
     icon
+
 }: ButtonProps) => {
 
     return (
 
         <button
+
             type={type}
+
             onClick={onClick}
-            disabled={disabled}
-            className={`button button-${variant}`}
+
+            disabled={disabled || loading}
+
+            className={`
+                button
+                button-${variant}
+                ${fullWidth ? "button-full" : ""}
+                ${loading ? "button-loading" : ""}
+            `}
+
         >
 
-            {icon &&
+            {
 
-                <span className="button-icon">
+                loading ? (
 
-                    {icon}
+                    <span className="button-spinner"/>
 
-                </span>
+                ) : (
+
+                    icon && (
+
+                        <span className="button-icon">
+
+                            {icon}
+
+                        </span>
+
+                    )
+
+                )
 
             }
 
             <span>
 
-                {children}
+                {
+
+                    loading
+
+                        ? "Cargando..."
+
+                        : children
+
+                }
 
             </span>
 

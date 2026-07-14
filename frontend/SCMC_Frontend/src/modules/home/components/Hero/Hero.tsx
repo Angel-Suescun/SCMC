@@ -1,6 +1,6 @@
 import "./Hero.css";
 
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowDown, BookOpen } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
@@ -59,7 +59,7 @@ const Hero = () => {
                         <Link to="/encrypt">
 
                             <Button
-                                icon={<ArrowRight size={18}/>}
+                                icon={<ArrowDown size={18}/>}
                             >
 
                                 Comenzar
@@ -133,7 +133,7 @@ const Hero = () => {
 
                         </span>
 
-                        <ArrowRight/>
+                        <ArrowDown/>
 
                         <span>
 
@@ -141,7 +141,7 @@ const Hero = () => {
 
                         </span>
 
-                        <ArrowRight/>
+                        <ArrowDown/>
 
                         <span>
 
@@ -149,7 +149,7 @@ const Hero = () => {
 
                         </span>
 
-                        <ArrowRight/>
+                        <ArrowDown/>
 
                         <span>
 

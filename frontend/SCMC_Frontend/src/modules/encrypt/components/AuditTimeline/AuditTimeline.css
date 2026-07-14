@@ -1,0 +1,39 @@
+.audit-timeline{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:2rem;
+
+    margin-top:3rem;
+
+}
+
+.timeline-line{
+
+    position:absolute;
+
+    left:20px;
+
+    top:0;
+
+    bottom:0;
+
+    width:2px;
+
+    background:linear-gradient(
+
+        to bottom,
+
+        var(--primary),
+
+        transparent
+
+    );
+
+    opacity:.35;
+
+}
