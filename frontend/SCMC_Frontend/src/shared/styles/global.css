@@ -1,0 +1,77 @@
+@import "./variables.css";
+@import "./typography.css";
+@import "./animations.css";
+@import "./utilities.css";
+@import "./scrollbar.css";
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--color-background);
+
+    color:var(--text-secondary);
+
+    font-family:var(--font-primary);
+
+    overflow-x:hidden;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+button{
+
+    font-family:inherit;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+input,
+
+textarea{
+
+    font-family:inherit;
+
+    outline:none;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+ul{
+
+    list-style:none;
+
+}

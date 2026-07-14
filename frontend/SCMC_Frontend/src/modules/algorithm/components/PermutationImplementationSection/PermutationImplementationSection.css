@@ -1,0 +1,97 @@
+@import "../PaddingImplementationSection/PaddingImplementationSection.css";
+
+.steps-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.9rem;
+
+    color:var(--text-secondary);
+
+}
+
+.steps-list li{
+
+    line-height:1.6;
+
+}
+
+.permutation-demo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:1rem;
+
+}
+
+.permutation-demo div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:.5rem;
+
+}
+
+.permutation-demo span{
+
+    color:var(--text-secondary);
+
+    font-size:.9rem;
+
+}
+
+.permutation-demo code{
+
+    padding:.65rem 1rem;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.05);
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.arrow{
+
+    color:var(--primary);
+
+    font-size:1.3rem;
+
+}
+
+.index-map{
+
+    display:grid;
+
+    gap:.75rem;
+
+    margin-top:1rem;
+
+    color:var(--text-secondary);
+
+}
+
+.index-map div{
+
+    padding:.75rem 1rem;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+}

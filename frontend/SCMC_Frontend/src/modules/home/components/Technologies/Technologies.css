@@ -1,0 +1,55 @@
+.tech-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:2rem;
+
+}
+
+.tech-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.tech-icon{
+
+    font-size:3rem;
+
+    color:var(--color-primary);
+
+    margin-bottom:1.5rem;
+
+    transition:var(--transition-normal);
+
+}
+
+.card:hover .tech-icon{
+
+    transform:scale(1.15) rotate(-8deg);
+
+}
+
+.tech-card h3{
+
+    color:var(--text-primary);
+
+    margin-bottom:.8rem;
+
+}
+
+.tech-card p{
+
+    color:var(--text-muted);
+
+    line-height:1.7;
+
+}
