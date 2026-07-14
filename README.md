@@ -1,318 +1,275 @@
-# 📋 README - Algoritmo de Encriptación SCMC
+# 🔐 SCMC - Sistema de Cifrado Multi-Capa
 
-## Introducción
+> Simulador de cifrado y descifrado basado en **Permutaciones**, **Funciones Biyectivas** y **Aritmética Modular**, desarrollado como proyecto académico de **Matemáticas Discretas II**.
 
-Este documento explica con detalle técnico cómo funciona el algoritmo de encriptación implementado en el servicio `EncryptService`. El algoritmo es **híbrido** y aplica tres transformaciones criptográficas en secuencia:
+<p align="center">
+  <img src="./assets/logo.png" width="180" alt="SCMC Logo">
+</p>
 
-1. **Padding** (acolchamiento)
-2. **Permutación** (reordenamiento)
-3. **Cifrado Modular** (desplazamiento con aritmética modular)
+<p align="center">
+
+![Java](https://img.shields.io/badge/Java-25-orange?style=for-the-badge&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-green?style=for-the-badge&logo=springboot)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-7-purple?style=for-the-badge&logo=vite)
+
+</p>
 
 ---
 
-## 🔑 Concepto General del Flujo
+## 🌐 Demo
 
-El algoritmo de encriptación sigue este flujo secuencial:
+### Aplicación desplegada
+
+👉 **https://scmc-blush.vercel.app/**
+
+---
+
+# 📖 Descripción
+
+SCMC (**Sistema de Cifrado Multi-Capa**) es una aplicación web que implementa un algoritmo de cifrado de doble capa para demostrar la aplicación práctica de conceptos de Matemáticas Discretas en criptografía.
+
+El proceso de cifrado combina dos transformaciones reversibles:
+
+- Permutaciones (Grupo Simétrico)
+- Aritmética Modular (Grupo Cíclico)
+
+Posteriormente, el sistema aplica las transformaciones inversas para recuperar exactamente el mensaje original.
+
+---
+
+# 🚀 Características
+
+- 🔐 Cifrado mediante permutaciones.
+- ➕ Cifrado mediante desplazamiento modular.
+- 🔄 Descifrado completo.
+- 📊 Auditoría paso a paso de cada transformación.
+- 🧮 Validación matemática de los parámetros.
+- 📱 Interfaz moderna y responsive.
+- ⚡ API REST desarrollada con Spring Boot.
+
+---
+
+# 🧠 Fundamentos Matemáticos
+
+Este proyecto implementa conceptos vistos durante el curso de Matemáticas Discretas II, entre ellos:
+
+- Funciones biyectivas
+- Funciones inversas
+- Permutaciones
+- Grupo Simétrico (Sn)
+- Composición de funciones
+- Aritmética Modular
+- Grupo Cíclico
+- Transformaciones reversibles
+
+---
+
+# ⚙️ Funcionamiento
 
 ```
 Mensaje Original
-      ↓
-  [PADDING]  → Ajusta el mensaje a múltiplos del tamaño de bloque
-      ↓
-[PERMUTACIÓN] → Reordena caracteres dentro de cada bloque
-      ↓
-[CIFRADO MODULAR] → Desplaza cada carácter usando aritmética módulo 256
-      ↓
-Mensaje Encriptado
-```
-
-Cada fase transforma el resultado de la anterior, acumulando complejidad criptográfica.
-
----
-
-## 📊 DTOs (Estructura de Datos)
-
-### `EncryptRequest` (Entrada)
-```java
-public record EncryptRequest (
-  String message,              // El texto a encriptar
-  Integer blockSize,           // Tamaño del bloque (ej: 4, 8, 16)
-  List<Integer> permutation,   // Índices para reordenar (ej: [2,0,3,1])
-  Integer shift                // Cantidad de desplazamiento (ej: 5, -3)
-)
-```
-
-**Ejemplo de entrada:**
-- `message` = `"Hola"`
-- `blockSize` = `4`
-- `permutation` = `[1, 0, 3, 2]` (intercambia pares de caracteres)
-- `shift` = `3`
-
-### `EncryptResponse` (Salida)
-```java
-public class EncryptResponse {
-  String originalMessage;      // El texto original
-  String paddedMessage;        // Después de padding
-  String permutedMessage;      // Después de permutación
-  String encryptedMessage;     // Resultado final
-  Integer blockSize;           // Parámetro usado
-  List<Integer> permutation;   // Parámetro usado
-  Integer shift;               // Parámetro usado (normalizado)
-  List<AuditStep> audit;       // Registro de cada fase
-}
-```
-
-Retorna **todos los estados intermedios** para auditoría y debugging.
-
----
-
-## 🔐 Fases del Algoritmo
-
-### **FASE 1: PADDING (Acolchamiento)**
-
-**Propósito:** Asegurar que la longitud del mensaje sea divisible por el `blockSize`.
-
-**Código:**
-```java
-public String encrypt(String message, Integer blockSize) {
-  StringBuilder paddedMessage = new StringBuilder(message);
-  while (paddedMessage.length() % blockSize != 0) {
-    paddedMessage.append('~');  // Carácter de relleno
-  }
-  return paddedMessage.toString();
-}
-```
-
-**Ejemplo:**
-```
-Entrada: "Hola" (4 caracteres), blockSize = 4
-Salida:  "Hola" (ya es múltiplo de 4, sin cambios)
-
-Entrada: "Hola" (4 caracteres), blockSize = 8
-Salida:  "Hola~~~~" (rellena a 8 caracteres con '~')
-```
-
-**Matemáticamente:**
-```
-long = |mensaje|
-mientras (long % blockSize ≠ 0):
-  mensaje += '~'
-  long += 1
+       │
+       ▼
+Permutación
+       │
+       ▼
+Transformación Modular
+       │
+       ▼
+Mensaje Cifrado
+       │
+       ▼
+Transformación Modular Inversa
+       │
+       ▼
+Permutación Inversa
+       │
+       ▼
+Mensaje Original
 ```
 
 ---
 
-### **FASE 2: PERMUTACIÓN (Reordenamiento)**
+# 🛠️ Tecnologías
 
-**Propósito:** Reordenar los caracteres dentro de cada bloque según una secuencia de índices.
+## Frontend
 
-**Código:**
-```java
-public String encrypt(String paddedMessage, List<Integer> permutation, Integer blockSize) {
-  List<String> blocks = splitIntoBlocks(paddedMessage, blockSize);
-  StringBuilder result = new StringBuilder();
-  
-  for (String block : blocks) {
-    result.append(applyPermutation(block, permutation));
-  }
-  return result.toString();
-}
+- React 19
+- TypeScript
+- Vite
+- CSS3
 
-private String applyPermutation(String block, List<Integer> permutation) {
-  StringBuilder result = new StringBuilder();
-  for (Integer index : permutation) {
-    result.append(block.charAt(index));  // Toma carácter en posición 'index'
-  }
-  return result.toString();
-}
-```
+## Backend
 
-**Ejemplo paso a paso:**
-
-Entrada: `"Hola~~~~"` (con blockSize = 4, permutation = `[1, 0, 3, 2]`)
-
-```
-Bloque 1: "Hola"
-  - Índice 0 (permutation[0]=1): block[1] = 'o'
-  - Índice 1 (permutation[1]=0): block[0] = 'H'
-  - Índice 2 (permutation[2]=3): block[3] = 'a'
-  - Índice 3 (permutation[3]=2): block[2] = 'l'
-  Resultado: "oHal"
-
-Bloque 2: "~~~~"
-  - Siguiendo permutation [1,0,3,2]: ~~~~
-  Resultado: "~~~~"
-
-Salida final: "oHal~~~~"
-```
-
-**Matemáticamente (por bloque):**
-```
-nuevo_bloque[i] = bloque_original[permutation[i]]
-```
-
-Esto es una **permutación de índices**: reordenamos posiciones en lugar de valores.
+- Java 21
+- Spring Boot
+- Spring Web
+- Maven
 
 ---
 
-### **FASE 3: CIFRADO MODULAR (Caesar Cipher Modular)**
-
-**Propósito:** Desplazar cada carácter en el alfabeto ASCII usando aritmética módulo 256.
-
-**Código:**
-```java
-public String encrypt(String data, int shift) {
-  StringBuilder result = new StringBuilder();
-  for (char character : data.toCharArray()) {
-    int encryptedAscii = (character + shift) % 256;
-    result.append((char) encryptedAscii);
-  }
-  return result.toString();
-}
-```
-
-**Concepto:**
-- Cada carácter tiene un valor ASCII (0-127 estándar, 0-255 extendido)
-- Se suma el `shift` al valor ASCII
-- Se aplica módulo 256 para mantener en rango válido
-- Se convierte de vuelta a carácter
-
-**Ejemplo:**
+# 📂 Arquitectura
 
 ```
-Entrada: "oHal~~~~", shift = 3
-
-'o' (ASCII 111) → (111 + 3) % 256 = 114 % 256 = 114 → 'r'
-'H' (ASCII 72)  → (72 + 3) % 256 = 75 % 256 = 75   → 'K'
-'a' (ASCII 97)  → (97 + 3) % 256 = 100 % 256 = 100 → 'd'
-'l' (ASCII 108) → (108 + 3) % 256 = 111 % 256 = 111 → 'o'
-'~' (ASCII 126) → (126 + 3) % 256 = 129 % 256 = 129 → (carácter ASCII 129)
-
-Salida: "rKdo" + carácter_129 + carácter_129 + ...
-```
-
-**Por qué módulo 256:**
-```
-ASCII_RANGE = 256 (valores 0-255)
-Si shift = 150 y character = 200:
-  (200 + 150) % 256 = 350 % 256 = 94 ✓ (mantiene en rango [0,255])
-```
-
-**Normalización del shift:**
-```java
-Integer normalizedShift = shiftService.normalizeShift(request.shift());
-// Asegura que shift esté en rango [-255, 255] para evitar desbordamientos
+SCMC
+│
+├── frontend/
+│   ├── React
+│   ├── TypeScript
+│   └── Vite
+│
+├── backend/
+│   ├── Spring Boot
+│   ├── Controllers
+│   ├── Services
+│   ├── DTO
+│   └── Models
+│
+└── README.md
 ```
 
 ---
 
-## 🔄 Flujo Completo en `EncryptService`
+# 🔑 Algoritmo
 
-```java
-public EncryptResponse encrypt(EncryptRequest request) {
-  
-  // Validación inicial
-  validationService.validateEncryptRequest(request);
-  
-  // 1. Normalizar shift
-  Integer normalizedShift = shiftService.normalizeShift(request.shift());
-  
-  // 2. Aplicar PADDING
-  String paddedMessage = paddingEncryptService.encrypt(
-      request.message(),
-      request.blockSize()
-  );
-  
-  // 3. Aplicar PERMUTACIÓN
-  String permutedMessage = permutationEncryptService.encrypt(
-      paddedMessage,
-      request.permutation(),
-      request.blockSize()
-  );
-  
-  // 4. Aplicar CIFRADO MODULAR
-  String encryptedMessage = modularEncryptService.encrypt(
-      permutedMessage,
-      normalizedShift
-  );
-  
-  // 5. Construir respuesta con todos los estados
-  return new EncryptResponseBuilder()
-      .setOriginalMessage(request.message())
-      .setPaddedMessage(paddedMessage)
-      .setPermutedMessage(permutedMessage)
-      .setEncryptedMessage(encryptedMessage)
-      .setBlockSize(request.blockSize())
-      .setPermutation(request.permutation())
-      .setShift(normalizedShift)
-      .setAudit(audit)  // Estados intermedios guardados
-      .build();
-}
+## Cifrado
+
+1. Dividir el mensaje en bloques.
+2. Aplicar la permutación definida por el usuario.
+3. Aplicar desplazamiento modular.
+4. Construir el mensaje cifrado.
+
+## Descifrado
+
+1. Aplicar el desplazamiento inverso.
+2. Calcular la permutación inversa.
+3. Reordenar los bloques.
+4. Recuperar el mensaje original.
+
+---
+
+# 📷 Capturas
+
+## Página principal
+
+> Agrega aquí una captura de la aplicación.
+
+---
+
+## Cifrado
+
+> Agrega aquí una captura del proceso de cifrado.
+
+---
+
+## Descifrado
+
+> Agrega aquí una captura del proceso de descifrado.
+
+---
+
+# 🚀 Instalación
+
+## Clonar el repositorio
+
+```bash
+git clone https://github.com/TU-USUARIO/scmc.git
 ```
 
 ---
 
-## 📝 Ejemplo Completo
+## Backend
 
-**Entrada:**
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+Servidor:
+
+```
+http://localhost:8080
+```
+
+---
+
+## Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Servidor:
+
+```
+http://localhost:5173
+```
+
+---
+
+# 📡 API
+
+## Cifrar
+
+```
+POST /api/cipher/encrypt
+```
+
+Ejemplo
+
 ```json
 {
-  "message": "AB",
+  "message": "Hola Mundo",
   "blockSize": 4,
-  "permutation": [3, 0, 1, 2],
+  "permutation": [1,3,2,4],
   "shift": 5
 }
 ```
 
-**Paso 1 - PADDING:**
-```
-"AB" (2 chars) → "AB~~" (4 chars, divisible por blockSize=4)
-```
+---
 
-**Paso 2 - PERMUTACIÓN:**
-```
-Bloque: "AB~~"
-permutation = [3, 0, 1, 2]
-  - pos 0: block[3] = '~'
-  - pos 1: block[0] = 'A'
-  - pos 2: block[1] = 'B'
-  - pos 3: block[2] = '~'
-Resultado: "~AB~"
-```
+## Descifrar
 
-**Paso 3 - CIFRADO MODULAR (shift = 5):**
 ```
-'~' (126) → (126 + 5) % 256 = 131 % 256 = 131 → chr(131) = '…'
-'A' (65)  → (65 + 5) % 256 = 70 % 256 = 70   → 'F'
-'B' (66)  → (66 + 5) % 256 = 71 % 256 = 71   → 'G'
-'~' (126) → (126 + 5) % 256 = 131 % 256 = 131 → chr(131) = '…'
-Resultado: "…FG…"
-```
-
-**Salida:**
-```json
-{
-  "originalMessage": "AB",
-  "paddedMessage": "AB~~",
-  "permutedMessage": "~AB~",
-  "encryptedMessage": "…FG…",
-  "blockSize": 4,
-  "permutation": [3, 0, 1, 2],
-  "shift": 5,
-  "audit": [...]
-}
+POST /api/cipher/decrypt
 ```
 
 ---
 
-## 🛡️ Propiedades Criptográficas
+# 🎯 Objetivos
 
-| Propiedad | Descripción | Nivel |
-|-----------|-------------|-------|
-| **Difusión** | La permutación mezcla caracteres dentro de bloques | ✅ Básico |
-| **Confusión** | El cifrado modular transforma valores ASCII | ✅ Básico |
-| **No-determinista** | Same input + same params = same output | ✅ Determinista |
-| **Reversibilidad** | Transformación invertible (permutación inversa, shift negativo) | ✅ Sí |
-| **Seguridad Criptográfica Fuerte** | ❌ NO - Es un cifrado educativo, no para producción |
+- Aplicar conceptos de Matemáticas Discretas.
+- Implementar un sistema de cifrado reversible.
+- Comprender el uso de funciones inversas.
+- Relacionar teoría matemática con desarrollo de software.
 
 ---
+
+# 📈 Posibles mejoras
+
+- Cifrado por múltiples rondas.
+- Más algoritmos de sustitución.
+- Historial de operaciones.
+- Exportación de resultados.
+- Comparación entre algoritmos clásicos.
+- Visualización matemática de las transformaciones.
+
+---
+
+# 👨‍💻 Autor
+
+**Ángel David Suescun Romero**
+
+Estudiante de Ingeniería de Sistemas e Informática.
+
+Universidad Nacional de Colombia
+
+---
+
+# 📄 Licencia
+
+Proyecto desarrollado con fines académicos para la asignatura **Matemáticas Discretas II**.
