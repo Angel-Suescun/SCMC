@@ -3,7 +3,7 @@
 > Simulador de cifrado y descifrado basado en **Permutaciones**, **Funciones Biyectivas** y **Aritmética Modular**, desarrollado como proyecto académico de **Matemáticas Discretas II**.
 
 <p align="center">
-  <img src="./assets/logo.png" width="180" alt="SCMC Logo">
+  <img src="./frontend/SCMC_Frontend/public/icon.png" width="180" alt="SCMC Logo">
 </p>
 
 <p align="center">
