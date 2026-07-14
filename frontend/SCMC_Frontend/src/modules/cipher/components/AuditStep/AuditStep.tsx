@@ -5,7 +5,7 @@ import { AuditType } from "../../types/AuditType";
 
 import PermutationMatrix from "../PermutationMatrix/PermutationMatrix";
 
-interface Props{
+interface Props {
 
     step: AuditStep;
 
@@ -19,9 +19,9 @@ export default function AuditStepComponent({
 
     permutation
 
-}:Props){
+}: Props) {
 
-    return(
+    return (
 
         <article className="audit-step glass">
 
@@ -33,11 +33,19 @@ export default function AuditStepComponent({
 
                 </div>
 
-                <div>
+                <div className="audit-header-content">
 
-                    <h3>{step.title}</h3>
+                    <h3>
 
-                    <p>{step.description}</p>
+                        {step.title}
+
+                    </h3>
+
+                    <p>
+
+                        {step.description}
+
+                    </p>
 
                 </div>
 
@@ -45,7 +53,9 @@ export default function AuditStepComponent({
 
             {
 
-                step.title===AuditType.PERMUTACION && permutation && (
+                step.title === AuditType.PERMUTACION &&
+
+                permutation && (
 
                     <PermutationMatrix
 
@@ -59,19 +69,35 @@ export default function AuditStepComponent({
 
             <div className="audit-content">
 
-                <div>
+                <div className="audit-block">
 
-                    <span>Entrada</span>
+                    <span>
 
-                    <pre>{step.input}</pre>
+                        Entrada
+
+                    </span>
+
+                    <pre className="audit-message">
+
+                        {step.input}
+
+                    </pre>
 
                 </div>
 
-                <div>
+                <div className="audit-block">
 
-                    <span>Salida</span>
+                    <span>
 
-                    <pre>{step.output}</pre>
+                        Salida
+
+                    </span>
+
+                    <pre className="audit-message">
+
+                        {step.output}
+
+                    </pre>
 
                 </div>
 

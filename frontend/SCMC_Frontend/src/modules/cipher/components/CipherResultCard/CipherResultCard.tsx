@@ -1,25 +1,29 @@
-import "./ResultCard.css";
+import "./CipherResultCard.css";
 
-import { Copy, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import { Copy, CheckCircle2 } from "lucide-react";
 
 import Button from "../../../../shared/components/Button/Button";
-
-import type { EncryptResponse } from "../../types/EncryptResponse";
-
+import SafeMessage from "../../../../shared/components/SafeMessage/SafeMessage";
 import PermutationMatrix from "../PermutationMatrix/PermutationMatrix";
 
-interface ResultCardProps {
+import type { CipherResponse } from "../../types/CipherResponse";
 
-    result?: EncryptResponse;
+interface CipherResultCardProps {
+
+    mode: "encrypt" | "decrypt";
+
+    result?: CipherResponse;
 
 }
 
-export default function ResultCard({
+export default function CipherResultCard({
+
+    mode,
 
     result
 
-}: ResultCardProps) {
+}: CipherResultCardProps) {
 
     const [copied, setCopied] = useState(false);
 
@@ -37,7 +41,7 @@ export default function ResultCard({
 
                 <p className="result-empty">
 
-                    Aún no se ha realizado ningún cifrado.
+                    Aún no se ha realizado ninguna operación.
 
                 </p>
 
@@ -47,29 +51,25 @@ export default function ResultCard({
 
     }
 
+    const currentResult = result;
+
+    const encrypt = mode === "encrypt";
+
     async function handleCopy() {
-
-        if (!result) {
-
-            return;
-
-        }
 
         await navigator.clipboard.writeText(
 
-            result.encryptedMessage
+            currentResult.resultMessage
 
         );
 
         setCopied(true);
 
-        setTimeout(
+        setTimeout(() => {
 
-            () => setCopied(false),
+            setCopied(false);
 
-            2000
-
-        );
+        }, 2000);
 
     }
 
@@ -93,13 +93,25 @@ export default function ResultCard({
 
                 <label>
 
-                    Mensaje original
+                    {
+
+                        encrypt
+
+                            ? "Mensaje original"
+
+                            : "Mensaje cifrado"
+
+                    }
 
                 </label>
 
                 <code>
 
-                    {result.originalMessage}
+                    <SafeMessage
+
+                        message={currentResult.firstMessage}
+
+                    />
 
                 </code>
 
@@ -109,13 +121,25 @@ export default function ResultCard({
 
                 <label>
 
-                    Mensaje con relleno
+                    {
+
+                        encrypt
+
+                            ? "Mensaje con relleno"
+
+                            : "Mensaje con desplazamiento modular inverso"
+
+                    }
 
                 </label>
 
                 <code>
 
-                    {result.paddedMessage}
+                    <SafeMessage
+
+                        message={currentResult.secondMessage}
+
+                    />
 
                 </code>
 
@@ -131,7 +155,7 @@ export default function ResultCard({
 
                 <PermutationMatrix
 
-                    permutation={result.permutation}
+                    permutation={currentResult.permutation}
 
                 />
 
@@ -141,13 +165,25 @@ export default function ResultCard({
 
                 <label>
 
-                    Mensaje permutado
+                    {
+
+                        encrypt
+
+                            ? "Mensaje permutado"
+
+                            : "Mensaje despermutado"
+
+                    }
 
                 </label>
 
                 <code>
 
-                    {result.permutedMessage}
+                    <SafeMessage
+
+                        message={currentResult.thirdMessage}
+
+                    />
 
                 </code>
 
@@ -157,13 +193,25 @@ export default function ResultCard({
 
                 <label>
 
-                    Mensaje cifrado
+                    {
+
+                        encrypt
+
+                            ? "Mensaje cifrado"
+
+                            : "Mensaje descifrado"
+
+                    }
 
                 </label>
 
                 <code>
 
-                    {result.encryptedMessage}
+                    <SafeMessage
+
+                        message={currentResult.resultMessage}
+
+                    />
 
                 </code>
 

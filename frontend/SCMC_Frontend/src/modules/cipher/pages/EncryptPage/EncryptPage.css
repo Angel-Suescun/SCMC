@@ -6,20 +6,33 @@
 
 }
 
-
 .encrypt-error{
 
-    margin-top:2rem;
+    display:flex;
 
-    padding:1rem;
+    align-items:center;
+
+    gap:.75rem;
+
+    margin:2rem 0;
+
+    padding:1rem 1.25rem;
 
     border-radius:12px;
 
-    background:rgba(255,0,0,.08);
+    background:rgba(239,68,68,.12);
 
-    border:1px solid rgba(255,0,0,.25);
+    border:1px solid rgba(239,68,68,.35);
 
-    color:#ffb4b4;
+    color:#FCA5A5;
+
+    font-weight:500;
+
+}
+
+.encrypt-error svg{
+
+    flex-shrink:0;
 
 }
 

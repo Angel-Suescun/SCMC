@@ -1,4 +1,4 @@
-import "./EncryptForm.css";
+import "./CipherForm.css";
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
@@ -7,26 +7,27 @@ import Button from "../../../../shared/components/Button/Button";
 import PermutationMatrix from "../PermutationMatrix/PermutationMatrix";
 
 import type { EncryptRequest } from "../../types/EncryptRequest";
+import type { DecryptRequest } from "../../types/DecryptRequest";
 
-interface EncryptFormProps {
+type CipherFormProps =
+    | {
+          mode: "encrypt";
+          loading: boolean;
+          onSubmit: (request: EncryptRequest) => void;
+          onLayoutChange?: (stacked: boolean) => void;
+      }
+    | {
+          mode: "decrypt";
+          loading: boolean;
+          onSubmit: (request: DecryptRequest) => void;
+          onLayoutChange?: (stacked: boolean) => void;
+      };
 
-    loading: boolean;
+export default function CipherForm(props: CipherFormProps) {
 
-    onEncrypt: (request: EncryptRequest) => void;
+    const { mode, loading, onLayoutChange } = props;
 
-    onLayoutChange?: (stacked: boolean) => void;
-
-}
-
-export default function EncryptForm({
-
-    loading,
-
-    onEncrypt,
-
-    onLayoutChange
-
-}: EncryptFormProps) {
+    const encrypt = mode === "encrypt";
 
     const [message, setMessage] = useState("");
 
@@ -34,7 +35,12 @@ export default function EncryptForm({
 
     const [shift, setShift] = useState(3);
 
-    const [permutation, setPermutation] = useState<number[]>([3, 1, 4, 2]);
+    const [permutation, setPermutation] = useState<number[]>([
+        3,
+        1,
+        4,
+        2
+    ]);
 
     function updateLayout(size: number) {
 
@@ -78,17 +84,17 @@ export default function EncryptForm({
 
     function decreaseSize() {
 
-        if (blockSize <= 2) return;
+        if (blockSize <= 2) {
+
+            return;
+
+        }
 
         const size = blockSize - 1;
 
         updateLayout(size);
 
-        setPermutation(previous =>
-
-            previous.slice(0, size)
-
-        );
+        setPermutation(previous => previous.slice(0, size));
 
     }
 
@@ -100,17 +106,39 @@ export default function EncryptForm({
 
         e.preventDefault();
 
-        onEncrypt({
+        const permutationRequest = permutation.map(value => value - 1);
 
-            message,
+        if (encrypt) {
 
-            blockSize,
+            props.onSubmit({
 
-            permutation: permutation.map(value => value - 1),
+                message,
 
-            shift
+                blockSize,
 
-        });
+                permutation: permutationRequest,
+
+                shift
+
+            });
+
+        }
+
+        else {
+
+            props.onSubmit({
+
+                encryptedMessage: message,
+
+                blockSize,
+
+                permutation: permutationRequest,
+
+                shift
+
+            });
+
+        }
 
     }
 
@@ -118,7 +146,7 @@ export default function EncryptForm({
 
         <form
 
-            className="encrypt-form glass"
+            className="cipher-form glass"
 
             onSubmit={handleSubmit}
 
@@ -128,13 +156,29 @@ export default function EncryptForm({
 
                 <h2>
 
-                    Cifrar mensaje
+                    {
+
+                        encrypt
+
+                            ? "Cifrar mensaje"
+
+                            : "Descifrar mensaje"
+
+                    }
 
                 </h2>
 
                 <p>
 
-                    Ingrese los parámetros necesarios para ejecutar el algoritmo SCMC.
+                    {
+
+                        encrypt
+
+                            ? "Ingrese los parámetros necesarios para ejecutar el algoritmo SCMC."
+
+                            : "Ingrese el mensaje cifrado y los parámetros utilizados durante el cifrado."
+
+                    }
 
                 </p>
 
@@ -144,7 +188,15 @@ export default function EncryptForm({
 
                 <label>
 
-                    Mensaje
+                    {
+
+                        encrypt
+
+                            ? "Mensaje"
+
+                            : "Mensaje cifrado"
+
+                    }
 
                 </label>
 
@@ -154,7 +206,15 @@ export default function EncryptForm({
 
                     value={message}
 
-                    placeholder="Escriba el mensaje..."
+                    placeholder={
+
+                        encrypt
+
+                            ? "Escriba el mensaje..."
+
+                            : "Pegue el mensaje cifrado..."
+
+                    }
 
                     onChange={(e) =>
 
@@ -184,11 +244,7 @@ export default function EncryptForm({
 
                         onChange={(e) =>
 
-                            setShift(
-
-                                Number(e.target.value)
-
-                            )
+                            setShift(Number(e.target.value))
 
                         }
 
@@ -266,7 +322,15 @@ export default function EncryptForm({
 
             >
 
-                Cifrar mensaje
+                {
+
+                    encrypt
+
+                        ? "Cifrar mensaje"
+
+                        : "Descifrar mensaje"
+
+                }
 
             </Button>
 

@@ -1,0 +1,177 @@
+.cipher-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:2rem;
+
+    padding:2rem;
+
+    height:100%;
+
+}
+
+.form-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.5rem;
+
+}
+
+.form-header h2{
+
+    color:white;
+
+    font-size:1.8rem;
+
+}
+
+.form-header p{
+
+    color:var(--text-secondary);
+
+    line-height:1.6;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.75rem;
+
+}
+
+.form-group label{
+
+    font-weight:600;
+
+    color:white;
+
+}
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:1rem;
+
+}
+
+.form-group textarea,
+
+.form-group input{
+
+    width:100%;
+
+    padding:1rem;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#111827;
+
+    color:white;
+
+    font-size:1rem;
+
+    transition:.25s;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:160px;
+
+}
+
+.form-group textarea:focus,
+
+.form-group input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 3px rgba(0,245,255,.15);
+
+}
+
+.permutation-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:1rem;
+
+}
+
+.permutation-actions{
+
+    display:flex;
+
+    gap:.5rem;
+
+}
+
+.matrix-button{
+
+    width:38px;
+
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:var(--primary);
+
+    transition:.25s;
+
+}
+
+.matrix-button:hover:not(:disabled){
+
+    background:rgba(0,245,255,.08);
+
+    border-color:rgba(0,245,255,.35);
+
+}
+
+.matrix-button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+}
+
+@media(max-width:768px){
+
+    .cipher-form{
+
+        padding:1.5rem;
+
+    }
+
+}
