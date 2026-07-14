@@ -7,13 +7,13 @@ import type { EncryptResponse } from "../types/EncryptResponse";
 
 export async function encryptMessage(request: EncryptRequest): Promise<EncryptResponse> {
 
-    const response = await apiClient.post<EncryptResponse>("/encrypt", request);
+    const response = await apiClient.post<EncryptResponse>("api/encrypt", request);
 
     return response.data;
 }
 
 export async function decryptMessage(request: DecryptRequest): Promise<DecryptResponse> {
 
-    const response = await apiClient.post<DecryptResponse>("/decrypt", request);
+    const response = await apiClient.post<DecryptResponse>("api/decrypt", request);
     return response.data;
 }
