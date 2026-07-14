@@ -34,6 +34,12 @@ public class PermutationDecryptService {
 
     List<String> blocks = new ArrayList<>();
 
+    if (message.length() % blockSize != 0) {
+      throw new IllegalArgumentException(
+          "La longitud del mensaje debe ser multiplo del tamano del bloque"
+      );
+    }
+
     for (int i = 0; i < message.length(); i += blockSize) {
       blocks.add(message.substring(i, i + blockSize));
     }

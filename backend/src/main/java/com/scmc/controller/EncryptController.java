@@ -29,7 +29,7 @@ public class EncryptController {
       return ResponseEntity
           .status(HttpStatus.OK)
           .body(response);
-    } catch (IllegalStateException exception){
+    } catch (IllegalStateException | IllegalArgumentException exception){
 
       return ResponseEntity
           .status(HttpStatus.BAD_REQUEST)

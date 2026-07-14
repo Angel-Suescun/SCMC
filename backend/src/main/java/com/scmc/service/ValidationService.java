@@ -88,6 +88,21 @@ public class ValidationService {
   public void validateDecryptRequest(DecryptRequest request) {
     validateMessage(request.encryptedMessage());
     validateBlockSize(request.blockSize(), request.encryptedMessage().length());
+    validateMessageLengthIsMultipleOfBlockSize(
+        request.encryptedMessage().length(),
+        request.blockSize()
+    );
     validatePermutation(request.permutation(), request.blockSize());
+  }
+
+  public void validateMessageLengthIsMultipleOfBlockSize(
+      Integer messageLength,
+      Integer blockSize
+  ) {
+    if (messageLength % blockSize != 0) {
+      throw new IllegalArgumentException(
+          "La longitud del mensaje cifrado debe ser multiplo del tamano del bloque"
+      );
+    }
   }
 }
