@@ -1,0 +1,150 @@
+.padding-section {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 3rem;
+
+}
+
+.padding-header {
+
+    width: 100%;
+    max-width: 760px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    text-align: left;
+
+    gap: 1rem;
+
+}
+
+.padding-header span {
+
+    color: var(--primary);
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+    letter-spacing: .18rem;
+
+    text-transform: uppercase;
+
+}
+
+.padding-header h2 {
+
+    color: white;
+
+    font-size: 2.2rem;
+
+    line-height: 1.2;
+
+}
+
+.padding-header p {
+
+    color: var(--text-secondary);
+
+    line-height: 1.8;
+
+}
+
+.padding-demo {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 2rem;
+
+    flex-wrap: wrap;
+
+    padding: 2rem;
+
+}
+
+.padding-block {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 1rem;
+
+}
+
+.block-title {
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+.cells {
+
+    display: flex;
+
+    gap: .6rem;
+
+}
+
+.cells div {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    color: var(--primary);
+
+    font-family: var(--font-mono);
+
+    font-size: 1.2rem;
+
+}
+
+.padding-cell {
+
+    border-style: dashed !important;
+
+    color: #8ea5a7 !important;
+
+    background: rgba(255,255,255,.02) !important;
+
+}
+
+@media (max-width:768px) {
+
+    .padding-demo {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+}

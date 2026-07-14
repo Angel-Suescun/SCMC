@@ -1,15 +1,35 @@
-const MathematicsPage = () => {
+import "./MathematicsPage.css";
 
-    return (
+import HeroSection from "../components/Hero/HeroSection";
+import PermutationFlowSection from "../components/PermutationFlowSection/PermutationFlowSection";
+import PaddingSection from "../components/PaddingSection/PaddingSection";
+import PermutationSection from "../components/PermutationSection/PermutationSection";
+import ModularArithmeticSection from "../components/ModularArithmeticSection/ModularArithmeticSection";
+import ComplexitySection from "../components/ComplexitySection/ComplexitySection";
+import DecryptSection from "../components/DecryptSection/DecryptSection";
 
-        <div className="container section">
+export default function MathematicsPage(){
 
-            <h1>Fundamentos Matemáticos</h1>
+    return(
 
-        </div>
+        <main className="mathematics-page container">
+
+            <HeroSection/>
+
+            <PermutationFlowSection/>
+
+            <PaddingSection/>
+
+            <PermutationSection/>
+
+            <ModularArithmeticSection/>
+
+            <ComplexitySection/>
+
+            <DecryptSection/>
+
+        </main>
 
     );
 
-};
-
-export default MathematicsPage;
+}

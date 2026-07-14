@@ -12,7 +12,6 @@ import { encrypt } from "../../services/CipherService";
 
 import type { EncryptRequest } from "../../types/EncryptRequest";
 import type { EncryptResponse } from "../../types/EncryptResponse";
-import type { CipherResponse } from "../../types/CipherResponse";
 
 export default function EncryptPage() {
 
@@ -84,28 +83,6 @@ export default function EncryptPage() {
 
     }
 
-    const cipherResult: CipherResponse | undefined = result
-        ? {
-
-            firstMessage: result.originalMessage,
-
-            secondMessage: result.paddedMessage,
-
-            thirdMessage: result.permutedMessage,
-
-            resultMessage: result.encryptedMessage,
-
-            blockSize: result.blockSize,
-
-            permutation: result.permutation,
-
-            shift: result.shift,
-
-            audit: result.audit
-
-        }
-        : undefined;
-
     return (
 
         <main className="encrypt-page container">
@@ -132,7 +109,7 @@ export default function EncryptPage() {
 
                     mode="encrypt"
 
-                    result={cipherResult}
+                    result={result}
 
                 />
 
@@ -160,7 +137,7 @@ export default function EncryptPage() {
 
             <AuditTimeline
 
-                audit={cipherResult?.audit ?? []}
+                audit={result?.audit ?? []}
 
             />
 

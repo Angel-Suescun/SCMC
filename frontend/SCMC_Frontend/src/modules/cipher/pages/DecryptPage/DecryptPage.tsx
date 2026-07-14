@@ -10,7 +10,6 @@ import AuditTimeline from "../../components/AuditTimeline/AuditTimeline";
 
 import { decrypt } from "../../services/CipherService";
 
-import type { CipherResponse } from "../../types/CipherResponse";
 import type { DecryptRequest } from "../../types/DecryptRequest";
 import type { DecryptResponse } from "../../types/DecryptResponse";
 
@@ -25,9 +24,7 @@ export default function DecryptPage() {
     const [stackedLayout, setStackedLayout] = useState(false);
 
     async function handleDecrypt(
-
         request: DecryptRequest
-
     ) {
 
         try {
@@ -86,12 +83,10 @@ export default function DecryptPage() {
 
     return (
 
-        <main className="encrypt-page container">
+        <main className="decrypt-page container">
 
             <section
-
                 className={`encrypt-grid ${stackedLayout ? "stacked" : ""}`}
-
             >
 
                 <CipherForm
@@ -110,7 +105,7 @@ export default function DecryptPage() {
 
                     mode="decrypt"
 
-                    result={result as unknown as CipherResponse | undefined}
+                    result={result}
 
                 />
 

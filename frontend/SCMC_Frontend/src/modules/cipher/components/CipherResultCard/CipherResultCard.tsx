@@ -7,15 +7,18 @@ import Button from "../../../../shared/components/Button/Button";
 import SafeMessage from "../../../../shared/components/SafeMessage/SafeMessage";
 import PermutationMatrix from "../PermutationMatrix/PermutationMatrix";
 
-import type { CipherResponse } from "../../types/CipherResponse";
+import type { EncryptResponse } from "../../types/EncryptResponse";
+import type { DecryptResponse } from "../../types/DecryptResponse";
 
-interface CipherResultCardProps {
-
-    mode: "encrypt" | "decrypt";
-
-    result?: CipherResponse;
-
-}
+type CipherResultCardProps =
+    | {
+          mode: "encrypt";
+          result?: EncryptResponse;
+      }
+    | {
+          mode: "decrypt";
+          result?: DecryptResponse;
+      };
 
 export default function CipherResultCard({
 
@@ -51,17 +54,27 @@ export default function CipherResultCard({
 
     }
 
-    const currentResult = result;
-
     const encrypt = mode === "encrypt";
+
+    const firstMessage = encrypt
+        ? result.originalMessage
+        : result.encryptedMessage;
+
+    const secondMessage = encrypt
+        ? result.paddedMessage
+        : result.permutedMessage;
+
+    const thirdMessage = encrypt
+        ? result.permutedMessage
+        : result.paddedMessage;
+
+    const finalMessage = encrypt
+        ? result.encryptedMessage
+        : result.decryptedMessage;
 
     async function handleCopy() {
 
-        await navigator.clipboard.writeText(
-
-            currentResult.resultMessage
-
-        );
+        await navigator.clipboard.writeText(finalMessage);
 
         setCopied(true);
 
@@ -109,7 +122,7 @@ export default function CipherResultCard({
 
                     <SafeMessage
 
-                        message={currentResult.firstMessage}
+                        message={firstMessage}
 
                     />
 
@@ -137,7 +150,7 @@ export default function CipherResultCard({
 
                     <SafeMessage
 
-                        message={currentResult.secondMessage}
+                        message={secondMessage}
 
                     />
 
@@ -155,7 +168,7 @@ export default function CipherResultCard({
 
                 <PermutationMatrix
 
-                    permutation={currentResult.permutation}
+                    permutation={result.permutation}
 
                 />
 
@@ -181,7 +194,7 @@ export default function CipherResultCard({
 
                     <SafeMessage
 
-                        message={currentResult.thirdMessage}
+                        message={thirdMessage}
 
                     />
 
@@ -209,7 +222,7 @@ export default function CipherResultCard({
 
                     <SafeMessage
 
-                        message={currentResult.resultMessage}
+                        message={finalMessage}
 
                     />
 
