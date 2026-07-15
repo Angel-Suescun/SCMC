@@ -150,25 +150,6 @@ SCMC
 
 ---
 
-# 📷 Capturas
-
-## Página principal
-
-> Agrega aquí una captura de la aplicación.
-
----
-
-## Cifrado
-
-> Agrega aquí una captura del proceso de cifrado.
-
----
-
-## Descifrado
-
-> Agrega aquí una captura del proceso de descifrado.
-
----
 
 # 🚀 Instalación
 
@@ -216,7 +197,7 @@ http://localhost:5173
 ## Cifrar
 
 ```
-POST /api/cipher/encrypt
+POST /api/encrypt
 ```
 
 Ejemplo
@@ -235,7 +216,7 @@ Ejemplo
 ## Descifrar
 
 ```
-POST /api/cipher/decrypt
+POST /api/decrypt
 ```
 
 ---
@@ -264,7 +245,7 @@ POST /api/cipher/decrypt
 
 **Ángel David Suescun Romero**
 
-Estudiante de Ingeniería de Sistemas e Informática.
+Estudiante de Ingeniería de Sistemas y Computación
 
 Universidad Nacional de Colombia
 
