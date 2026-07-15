@@ -168,7 +168,7 @@ export default function CipherResultCard({
 
                 <PermutationMatrix
 
-                    permutation={result.permutation}
+                    permutation={result.permutation.map((value) => value + 1)}
 
                 />
 
