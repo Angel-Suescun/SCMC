@@ -47,7 +47,7 @@ public class PermutationAuditService {
         "Se ha aplicado una permutación de tamaño de bloque %d al mensaje, "
             + "utilizando la siguiente permutación: %s.",
         blockSize,
-        permutation.toString()
+        PermutationToString(permutation)
     );
   }
 
@@ -56,8 +56,15 @@ public class PermutationAuditService {
         "Se dividió el mensaje en bloques de %d caracteres "
             + "y se aplicó la permutación inversa correspondiente %s a cada bloque.",
         blockSize,
-        permutation.toString()
+        PermutationToString(permutation)
     );
+  }
+
+  private String PermutationToString(List<Integer> permutation) {
+    return permutation.stream()
+        .map(i -> i + 1)
+        .toList()
+        .toString();
   }
 
 }
