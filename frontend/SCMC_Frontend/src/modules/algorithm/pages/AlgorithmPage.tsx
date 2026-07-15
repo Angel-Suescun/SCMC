@@ -20,9 +20,9 @@ export default function ImplementationPage() {
 
             <PermutationImplementationSection />
 
-            <ModularImplementationSection />
-
             <ShiftNormalizationSection />
+
+            <ModularImplementationSection />
 
             <EncryptServiceSection />
 
