@@ -22,10 +22,10 @@ export default function PaddingSection() {
 
                 <p>
 
-                    Para aplicar la permutación, todos los bloques deben tener
-                    exactamente el mismo tamaño. Cuando el último bloque queda
-                    incompleto, SCMC añade el carácter <strong>~</strong> hasta
-                    completar la longitud del bloque.
+                    El mensaje se divide en bloques de tamaño fijo. Si el último
+                    bloque no contiene suficientes caracteres, SCMC completa los
+                    espacios restantes utilizando el carácter <strong>~</strong>,
+                    permitiendo que todos los bloques tengan la misma longitud.
 
                 </p>
 
@@ -44,11 +44,8 @@ export default function PaddingSection() {
                     <div className="cells">
 
                         <div>H</div>
-
                         <div>O</div>
-
                         <div>L</div>
-
                         <div>A</div>
 
                     </div>
@@ -65,13 +62,10 @@ export default function PaddingSection() {
 
                     <div className="cells">
 
-                        <div> </div>
-
                         <div>M</div>
-
                         <div>U</div>
-
                         <div>N</div>
+                        <div>D</div>
 
                     </div>
 
@@ -87,12 +81,9 @@ export default function PaddingSection() {
 
                     <div className="cells">
 
-                        <div>D</div>
-
                         <div>O</div>
-
                         <div className="padding-cell">~</div>
-
+                        <div className="padding-cell">~</div>
                         <div className="padding-cell">~</div>
 
                     </div>
