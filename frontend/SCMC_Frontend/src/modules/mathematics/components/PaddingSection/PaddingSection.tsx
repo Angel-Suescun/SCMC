@@ -62,10 +62,10 @@ export default function PaddingSection() {
 
                     <div className="cells">
 
+                        <div> </div>
                         <div>M</div>
                         <div>U</div>
                         <div>N</div>
-                        <div>D</div>
 
                     </div>
 
@@ -81,8 +81,8 @@ export default function PaddingSection() {
 
                     <div className="cells">
 
+                        <div>D</div>
                         <div>O</div>
-                        <div className="padding-cell">~</div>
                         <div className="padding-cell">~</div>
                         <div className="padding-cell">~</div>
 
