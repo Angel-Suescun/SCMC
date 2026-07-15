@@ -1,16 +1,16 @@
 import "./Hero.css";
 
-import { ArrowDown, BookOpen } from "lucide-react";
-
-import { Link } from "react-router-dom";
-
-import Button from "../../../../shared/components/Button";
-
 import {
+    ArrowDown,
+    BookOpen,
     ShieldCheck,
     Binary,
     Code2
 } from "lucide-react";
+
+import { Link } from "react-router-dom";
+
+import Button from "../../../../shared/components/Button";
 
 const Hero = () => {
 
@@ -19,8 +19,6 @@ const Hero = () => {
         <section className="hero">
 
             <div className="container hero-container">
-
-                {/* =========================== */}
 
                 <div className="hero-content">
 
@@ -32,11 +30,15 @@ const Hero = () => {
 
                     <h1 className="hero-title">
 
-                        Sistema de
+                        <span className="hero-title-line">
 
-                        <span>
+                            Sistema de
 
-                            {" "}Cifrado Multi-Capa
+                        </span>
+
+                        <span className="hero-title-line">
+
+                            Cifrado Multi-Capa
 
                         </span>
 
@@ -45,11 +47,8 @@ const Hero = () => {
                     <p className="hero-description">
 
                         Simulación interactiva basada en permutaciones,
-
                         funciones biyectivas y aritmética modular,
-
                         permitiendo visualizar cada transformación del
-
                         proceso de cifrado y descifrado.
 
                     </p>
@@ -59,7 +58,9 @@ const Hero = () => {
                         <Link to="/encrypt">
 
                             <Button
+
                                 icon={<ArrowDown size={18}/>}
+
                             >
 
                                 Comenzar
@@ -71,8 +72,11 @@ const Hero = () => {
                         <Link to="/mathematics">
 
                             <Button
+
                                 variant="outline"
+
                                 icon={<BookOpen size={18}/>}
+
                             >
 
                                 Fundamentos
@@ -87,30 +91,36 @@ const Hero = () => {
 
                         <div className="hero-highlight">
 
-                            <ShieldCheck size={18} />
+                            <ShieldCheck size={18}/>
 
                             <span>
+
                                 Algoritmo SCMC
+
                             </span>
 
                         </div>
 
                         <div className="hero-highlight">
 
-                            <Binary size={18} />
+                            <Binary size={18}/>
 
                             <span>
+
                                 Auditoría paso a paso
+
                             </span>
 
                         </div>
 
                         <div className="hero-highlight">
 
-                            <Code2 size={18} />
+                            <Code2 size={18}/>
 
                             <span>
+
                                 Implementación en Java
+
                             </span>
 
                         </div>
@@ -118,8 +128,6 @@ const Hero = () => {
                     </div>
 
                 </div>
-
-                {/* =========================== */}
 
                 <div className="hero-visual">
 
