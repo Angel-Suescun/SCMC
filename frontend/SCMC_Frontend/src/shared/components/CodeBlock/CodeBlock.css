@@ -94,11 +94,43 @@
 
 .code-block code{
 
-    font-family:"JetBrains Mono",monospace;
+    font-family:var(--font-code);
 
     font-size:.9rem;
 
     line-height:1.8;
 
     white-space:pre;
+
+}
+
+@media (max-width: 768px) {
+
+    .code-block-header,
+    .code-block-title {
+
+        padding: .85rem 1rem;
+
+    }
+
+    .code-block pre {
+
+        padding: 1rem;
+
+    }
+
+    .code-block code {
+
+        font-size: .8rem;
+
+        line-height: 1.7;
+
+    }
+
+    .code-language {
+
+        font-size: .65rem;
+
+    }
+
 }

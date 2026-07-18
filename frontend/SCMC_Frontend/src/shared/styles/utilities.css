@@ -63,4 +63,15 @@
 
     }
 
+    .flow-header h2,
+    .padding-header h2,
+    .modular-header h2,
+    .permutation-header h2,
+    .complexity-header h2,
+    .decrypt-header h2 {
+
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+
+    }
+
 }

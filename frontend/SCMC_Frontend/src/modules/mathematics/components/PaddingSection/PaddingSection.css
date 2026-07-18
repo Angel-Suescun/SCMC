@@ -153,3 +153,17 @@
     }
 
 }
+
+@media(max-width:480px){
+
+    .padding-section .cells div{
+
+        width:48px;
+
+        height:48px;
+
+        font-size:1rem;
+
+    }
+
+}

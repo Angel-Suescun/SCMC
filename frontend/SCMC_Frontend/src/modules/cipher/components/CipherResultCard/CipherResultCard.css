@@ -127,3 +127,19 @@
     padding:3rem 0;
 
 }
+
+@media (max-width: 768px) {
+
+    .result-card {
+
+        padding: 1.5rem;
+
+    }
+
+    .result-final code {
+
+        font-size: .9rem;
+
+    }
+
+}

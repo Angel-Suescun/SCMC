@@ -69,6 +69,8 @@
     /* Alias usados en varios componentes (evita variables indefinidas) */
     --primary: var(--color-primary);
 
+    --accent: var(--color-primary);
+
     --font-mono: var(--font-code);
 
 }
