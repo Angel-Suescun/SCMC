@@ -4,6 +4,8 @@
 
     margin:auto;
 
+    padding-inline:var(--container-padding);
+
 }
 
 .glass{
@@ -50,5 +52,15 @@
 .section{
 
     padding:100px 0;
+
+}
+
+@media (max-width: 768px) {
+
+    .section {
+
+        padding: 60px 0;
+
+    }
 
 }

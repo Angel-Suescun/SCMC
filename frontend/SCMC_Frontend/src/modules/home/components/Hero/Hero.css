@@ -218,6 +218,8 @@
 
         justify-content:center;
 
+        flex-wrap:wrap;
+
     }
 
     .hero-highlights{
@@ -235,6 +237,44 @@
     .hero-title{
 
         align-items:center;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero{
+
+        min-height:auto;
+
+        padding-block:2rem;
+
+    }
+
+    .hero-circle{
+
+        width:280px;
+
+        height:280px;
+
+    }
+
+    .hero-card{
+
+        min-width:0;
+
+        width:min(100%,320px);
+
+        padding:1.5rem;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:stretch;
 
     }
 

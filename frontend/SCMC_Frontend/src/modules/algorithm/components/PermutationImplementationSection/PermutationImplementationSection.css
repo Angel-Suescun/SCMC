@@ -1,97 +1,71 @@
-@import "../PaddingImplementationSection/PaddingImplementationSection.css";
+@import "../../../../shared/styles/implementation-section.css";
 
-.steps-list{
+.permutation-demo {
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    gap:.9rem;
+    align-items: center;
 
-    color:var(--text-secondary);
-
-}
-
-.steps-list li{
-
-    line-height:1.6;
+    gap: 1rem;
 
 }
 
-.permutation-demo{
+.permutation-demo div {
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    align-items:center;
+    align-items: center;
 
-    gap:1rem;
-
-}
-
-.permutation-demo div{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:.5rem;
+    gap: .5rem;
 
 }
 
-.permutation-demo span{
+.permutation-demo span {
 
-    color:var(--text-secondary);
+    color: var(--text-secondary);
 
-    font-size:.9rem;
-
-}
-
-.permutation-demo code{
-
-    padding:.65rem 1rem;
-
-    border-radius:10px;
-
-    background:rgba(255,255,255,.05);
-
-    color:var(--primary);
-
-    font-weight:600;
+    font-size: .9rem;
 
 }
 
-.arrow{
+.permutation-demo code {
 
-    color:var(--primary);
+    padding: .65rem 1rem;
 
-    font-size:1.3rem;
+    border-radius: 10px;
 
-}
+    background: rgba(255, 255, 255, .05);
 
-.index-map{
+    color: var(--color-primary);
 
-    display:grid;
-
-    gap:.75rem;
-
-    margin-top:1rem;
-
-    color:var(--text-secondary);
+    font-weight: 600;
 
 }
 
-.index-map div{
+.index-map {
 
-    padding:.75rem 1rem;
+    display: grid;
 
-    border-radius:10px;
+    gap: .75rem;
 
-    background:rgba(255,255,255,.03);
+    margin-top: 1rem;
 
-    border:1px solid rgba(255,255,255,.06);
+    color: var(--text-secondary);
+
+}
+
+.index-map div {
+
+    padding: .75rem 1rem;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, .03);
+
+    border: 1px solid rgba(255, 255, 255, .06);
 
 }

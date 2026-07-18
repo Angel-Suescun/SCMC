@@ -35,3 +35,13 @@
     font-weight:700;
 
 }
+
+@media (max-width: 768px) {
+
+    .card {
+
+        padding: 1.5rem;
+
+    }
+
+}

@@ -1,48 +1,68 @@
+import { useState } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 
+const navLinks = [
+    { to: "/", label: "Inicio" },
+    { to: "/encrypt", label: "Cifrar" },
+    { to: "/decrypt", label: "Descifrar" },
+    { to: "/mathematics", label: "Fundamentos Matemáticos" },
+    { to: "/algorithm", label: "Implementación" },
+];
+
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const closeMenu = () => setIsOpen(false);
+
     return (
         <header className="navbar">
             <div className="container navbar-container">
 
-                <NavLink to="/" className="navbar-logo">
+                <NavLink to="/" className="navbar-logo" onClick={closeMenu}>
                     SCMC
                 </NavLink>
 
-                <nav className="navbar-menu">
+                <button
+                    type="button"
+                    className={`navbar-toggle ${isOpen ? "open" : ""}`}
+                    aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+                    aria-expanded={isOpen}
+                    onClick={() => setIsOpen((prev) => !prev)}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
 
-                    <NavLink to="/" className="navbar-link">
-                        Inicio
+                <nav className={`navbar-menu ${isOpen ? "open" : ""}`}>
+                    {navLinks.map(({ to, label }) => (
+                        <NavLink
+                            key={to}
+                            to={to}
+                            className="navbar-link"
+                            onClick={closeMenu}
+                        >
+                            {label}
+                        </NavLink>
+                    ))}
+
+                    <NavLink
+                        to="/encrypt"
+                        className="navbar-button navbar-button--mobile"
+                        onClick={closeMenu}
+                    >
+                        Comenzar
                     </NavLink>
-
-                    <NavLink to="/encrypt" className="navbar-link">
-                        Cifrar
-                    </NavLink>
-
-                    <NavLink to="/decrypt" className="navbar-link">
-                        Descifrar
-                    </NavLink>
-
-                    <NavLink to="/mathematics" className="navbar-link">
-                        Fundamentos Matemáticos
-                    </NavLink>
-
-                    <NavLink to="/algorithm" className="navbar-link">
-                        Implementación
-                    </NavLink>
-
                 </nav>
 
                 <div className="navbar-actions">
-
                     <NavLink
                         to="/encrypt"
                         className="navbar-button"
                     >
                         Comenzar
                     </NavLink>
-
                 </div>
 
             </div>
