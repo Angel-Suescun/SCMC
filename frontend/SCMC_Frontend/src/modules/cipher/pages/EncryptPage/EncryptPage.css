@@ -75,3 +75,25 @@
     }
 
 }
+
+@media (max-width:480px){
+
+    .encrypt-page{
+
+        padding-top:3.5rem;
+
+        padding-bottom:2.5rem;
+
+    }
+
+    .encrypt-error{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        font-size:.9rem;
+
+    }
+
+}

@@ -34,7 +34,7 @@ export default function DecryptSection() {
 
             <div className="decrypt-flow">
 
-                <div className="flow-card">
+                <div className="decrypt-flow-card">
 
                     <span>
 
@@ -44,13 +44,13 @@ export default function DecryptSection() {
 
                 </div>
 
-                <div className="flow-arrow">
+                <div className="decrypt-flow-arrow">
 
                     ↓
 
                 </div>
 
-                <div className="flow-card">
+                <div className="decrypt-flow-card">
 
                     <h4>
 
@@ -66,13 +66,13 @@ export default function DecryptSection() {
 
                 </div>
 
-                <div className="flow-arrow">
+                <div className="decrypt-flow-arrow">
 
                     ↓
 
                 </div>
 
-                <div className="flow-card">
+                <div className="decrypt-flow-card">
 
                     <h4>
 
@@ -96,13 +96,13 @@ export default function DecryptSection() {
 
                 </div>
 
-                <div className="flow-arrow">
+                <div className="decrypt-flow-arrow">
 
                     ↓
 
                 </div>
 
-                <div className="flow-card">
+                <div className="decrypt-flow-card">
 
                     <h4>
 
@@ -118,13 +118,13 @@ export default function DecryptSection() {
 
                 </div>
 
-                <div className="flow-arrow">
+                <div className="decrypt-flow-arrow">
 
                     ↓
 
                 </div>
 
-                <div className="flow-card success">
+                <div className="decrypt-flow-card success">
 
                     <span>
 

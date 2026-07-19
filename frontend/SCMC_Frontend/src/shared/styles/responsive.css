@@ -25,7 +25,7 @@
 
     .modular-card,
     .property-card,
-    .flow-card {
+    .flow-section .flow-card {
 
         padding: 1.5rem;
 
@@ -148,7 +148,7 @@
 
     }
 
-    .hero-content p {
+    .hero-section .hero-content p {
 
         max-width: 100%;
 
@@ -282,7 +282,7 @@
 
     }
 
-    .hero-content h1 {
+    .hero-section .hero-content h1 {
 
         font-size: clamp(1.75rem, 8vw, 2.4rem);
 
@@ -294,27 +294,7 @@
 
     }
 
-    .matrix {
-
-        grid-template-columns: repeat(4, 38px);
-
-        grid-template-rows: repeat(2, 38px);
-
-        gap: .3rem;
-
-    }
-
-    .matrix div {
-
-        font-size: .85rem;
-
-    }
-
-    .flow-arrow {
-
-        font-size: 1.5rem;
-
-    }
+    .github-card,
 
     .complexity-icon {
 
@@ -333,6 +313,12 @@
     .modular-card h3 {
 
         font-size: 1.1rem;
+
+    }
+
+    .flow-section .flow-arrow {
+
+        font-size: 1.5rem;
 
     }
 
@@ -377,40 +363,6 @@
         height: 40px;
 
         font-size: .9rem;
-
-    }
-
-    .hero-circle {
-
-        width: min(72vw, 260px);
-
-        height: min(72vw, 260px);
-
-    }
-
-    .hero-card {
-
-        position: relative;
-
-        width: 100%;
-
-        max-width: 100%;
-
-    }
-
-    .hero-visual {
-
-        width: 100%;
-
-    }
-
-    .hero-highlights {
-
-        flex-direction: column;
-
-        align-items: center;
-
-        gap: .75rem;
 
     }
 

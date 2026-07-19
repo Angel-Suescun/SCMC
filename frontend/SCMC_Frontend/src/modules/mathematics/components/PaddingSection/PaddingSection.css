@@ -152,6 +152,14 @@
 
     }
 
+    .padding-section .cells{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
 }
 
 @media(max-width:480px){

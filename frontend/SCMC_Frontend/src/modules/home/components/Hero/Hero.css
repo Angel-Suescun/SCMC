@@ -74,6 +74,20 @@
 
 }
 
+.hero .hero-content .hero-title-line{
+
+    color:var(--text-primary);
+
+    font-size:clamp(3rem,5vw,4rem) !important;
+
+    font-weight:800 !important;
+
+    text-transform:none;
+
+    letter-spacing:0;
+
+}
+
 .hero-title-line{
 
     color:var(--text-primary);
@@ -92,7 +106,7 @@
 
     font-size:1.15rem;
 
-    color:var(--color-primary);
+    color:var(--text-primary);
 
     line-height:1.9;
 
@@ -108,7 +122,51 @@
 
     gap:1.2rem;
 
-    color:var(--color-background);
+}
+
+.hero .hero-buttons .button span{
+
+    font-size:inherit;
+
+    font-weight:inherit;
+
+    text-transform:none;
+
+    letter-spacing:0;
+
+}
+
+.hero-buttons .button-primary,
+
+.hero-buttons .button-primary span,
+
+.hero-buttons .button-primary .button-icon{
+
+    color:#07111d;
+
+}
+
+.hero-buttons .button-outline,
+
+.hero-buttons .button-outline span,
+
+.hero-buttons .button-outline .button-icon{
+
+    color:#ffffff;
+
+}
+
+.hero .hero-highlight span{
+
+    color:inherit;
+
+    font-size:inherit;
+
+    font-weight:inherit;
+
+    text-transform:none;
+
+    letter-spacing:0;
 
 }
 
@@ -208,7 +266,15 @@
 
 }
 
-@media(max-width:950px){
+@media(max-width:900px){
+
+    .hero{
+
+        min-height:auto;
+
+        padding-block:2rem;
+
+    }
 
     .hero-container{
 
@@ -266,29 +332,41 @@
 
 @media(max-width:480px){
 
-    .hero{
-
-        min-height:auto;
-
-        padding-block:2rem;
-
-    }
-
     .hero-circle{
 
-        width:280px;
+        width:min(72vw,280px);
 
-        height:280px;
+        height:min(72vw,280px);
 
     }
 
     .hero-card{
 
+        position:relative;
+
         min-width:0;
 
-        width:min(100%,320px);
+        width:100%;
+
+        max-width:100%;
 
         padding:1.5rem;
+
+    }
+
+    .hero-visual{
+
+        width:100%;
+
+    }
+
+    .hero-highlights{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:.75rem;
 
     }
 
