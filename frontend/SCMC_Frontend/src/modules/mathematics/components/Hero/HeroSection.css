@@ -40,7 +40,7 @@
 
     color:white;
 
-    font-size:3.8rem;
+    font-size:clamp(2rem, 6vw, 3.8rem);
 
     line-height:1.1;
 
@@ -130,9 +130,11 @@
 
     display:grid;
 
-    grid-template-columns:repeat(4,80px);
+    grid-template-columns:repeat(4, minmax(56px, 1fr));
 
     gap:1rem;
+
+    width:100%;
 
 }
 
@@ -299,11 +301,19 @@
 
     }
 
-    .hero-tags span{
+    .hero-tags div{
 
         font-size:.8rem;
 
         padding:.45rem .75rem;
+
+    }
+
+    .binary-card p{
+
+        font-size:.85rem;
+
+        word-break:break-word;
 
     }
 

@@ -192,6 +192,16 @@
 
 }
 
+@media(max-width:768px){
+
+    .implementation-hero{
+
+        gap:2rem;
+
+    }
+
+}
+
 @media(max-width:480px){
 
     .implementation-hero__content{

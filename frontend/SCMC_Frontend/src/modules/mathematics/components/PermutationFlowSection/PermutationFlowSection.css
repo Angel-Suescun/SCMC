@@ -28,7 +28,7 @@
 .flow-header h2 {
 
     color: white;
-    font-size: 2.2rem;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
 
 }
 
@@ -180,6 +180,31 @@
     .flow-arrow {
 
         transform: rotate(90deg);
+
+    }
+
+    .flow-card {
+
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+
+    }
+
+}
+
+@media (max-width:480px) {
+
+    .flow-section {
+
+        gap: 1.5rem;
+
+    }
+
+    .flow-icon {
+
+        width: 36px;
+        height: 36px;
 
     }
 

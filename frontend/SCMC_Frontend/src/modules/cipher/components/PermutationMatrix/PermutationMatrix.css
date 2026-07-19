@@ -177,3 +177,25 @@
     }
 
 }
+
+@media (max-width: 480px) {
+
+    .matrix-table td {
+
+        width: 48px;
+
+        height: 48px;
+
+    }
+
+    .matrix-input {
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: .9rem;
+
+    }
+
+}

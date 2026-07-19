@@ -59,3 +59,15 @@
     font-weight:700;
 
 }
+
+@media (max-width: 768px) {
+
+    .safe-message {
+
+        font-size: .85rem;
+
+        line-height: 1.6;
+
+    }
+
+}

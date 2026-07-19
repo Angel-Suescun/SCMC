@@ -274,3 +274,33 @@
     }
 
 }
+
+@media (max-width: 480px) {
+
+    .implementation-header span {
+
+        max-width: 100%;
+
+        white-space: normal;
+
+        text-align: center;
+
+        margin-inline: auto;
+
+    }
+
+    .implementation-header {
+
+        align-items: center;
+
+        text-align: center;
+
+    }
+
+    .implementation-header p {
+
+        max-width: 100%;
+
+    }
+
+}

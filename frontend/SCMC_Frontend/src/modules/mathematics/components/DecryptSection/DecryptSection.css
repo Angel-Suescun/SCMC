@@ -40,7 +40,7 @@
 
     color:white;
 
-    font-size:2.2rem;
+    font-size:clamp(1.6rem, 4vw, 2.2rem);
 
 }
 
@@ -216,7 +216,15 @@
 
         grid-template-columns:1fr;
 
-        justify-items:start;
+        justify-items:stretch;
+
+        width:100%;
+
+    }
+
+    .property-card{
+
+        width:100%;
 
     }
 
@@ -225,6 +233,22 @@
         grid-template-columns:repeat(4,42px);
 
         grid-template-rows:repeat(2,42px);
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .decrypt-section{
+
+        gap:1.5rem;
+
+    }
+
+    .flow-card{
+
+        width:100%;
 
     }
 

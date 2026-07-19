@@ -38,7 +38,7 @@
 
     color:var(--text-primary);
 
-    font-size:2.2rem;
+    font-size:clamp(1.6rem, 4vw, 2.2rem);
 
 }
 
@@ -156,13 +156,27 @@
 
 @media(max-width:480px){
 
+    .padding-section{
+
+        gap:1.5rem;
+
+    }
+
+    .padding-section .padding-demo{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
     .padding-section .cells div{
 
-        width:48px;
+        width:44px;
 
-        height:48px;
+        height:44px;
 
-        font-size:1rem;
+        font-size:.9rem;
 
     }
 

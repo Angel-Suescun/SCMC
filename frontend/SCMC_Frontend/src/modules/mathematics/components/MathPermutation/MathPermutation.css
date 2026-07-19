@@ -8,6 +8,8 @@
 
     width:100%;
 
+    overflow-x:auto;
+
 }
 
 .math-row{
@@ -84,11 +86,27 @@
 
         grid-template-columns:1fr;
 
+        min-width:0;
+
     }
 
     .math-label{
 
         text-align:center;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .math-cell{
+
+        height:46px;
+
+        font-size:.85rem;
+
+        border-radius:10px;
 
     }
 

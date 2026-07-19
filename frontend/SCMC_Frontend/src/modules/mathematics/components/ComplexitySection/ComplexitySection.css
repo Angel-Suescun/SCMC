@@ -42,7 +42,7 @@
 
     color:white;
 
-    font-size:2.3rem;
+    font-size:clamp(1.6rem, 4vw, 2.3rem);
 
 }
 
@@ -160,7 +160,15 @@
 
         grid-template-columns:1fr;
 
-        justify-items:start;
+        justify-items:stretch;
+
+        width:100%;
+
+    }
+
+    .complexity-card{
+
+        width:100%;
 
     }
 

@@ -1,0 +1,432 @@
+:root {
+
+    --bp-desktop: 1100px;
+
+    --bp-tablet: 900px;
+
+    --bp-mobile: 768px;
+
+    --bp-small: 480px;
+
+}
+
+@media (max-width: 900px) {
+
+    .modular-section,
+    .complexity-section,
+    .padding-section,
+    .permutation-section,
+    .decrypt-section,
+    .flow-section {
+
+        gap: 2rem;
+
+    }
+
+    .modular-card,
+    .property-card,
+    .flow-card {
+
+        padding: 1.5rem;
+
+    }
+
+    .formula {
+
+        font-size: clamp(1rem, 4vw, 1.6rem);
+
+        overflow-x: auto;
+
+    }
+
+    .permutation-description h3 {
+
+        font-size: 1.25rem;
+
+    }
+
+    .padding-section .padding-demo {
+
+        padding: 1.5rem;
+
+        gap: 2rem;
+
+    }
+
+    .padding-section .cells {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+    .flow-header h2 {
+
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .display-title {
+
+        font-size: clamp(2rem, 7vw, 3.5rem);
+
+    }
+
+    .section-title {
+
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+
+    }
+
+    .card-title {
+
+        font-size: 1.15rem;
+
+    }
+
+    .body-lg {
+
+        font-size: 1rem;
+
+    }
+
+    .features-grid,
+    .tech-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 1.5rem;
+
+    }
+
+    .form-header h2 {
+
+        font-size: clamp(1.35rem, 5vw, 1.8rem);
+
+    }
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-group textarea {
+
+        min-height: 140px;
+
+    }
+
+    .audit-content {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .permutation-description code {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        word-break: break-word;
+
+    }
+
+    .hero-section {
+
+        min-height: auto;
+
+        gap: 3rem;
+
+        padding-block: 1rem;
+
+    }
+
+    .hero-content p {
+
+        max-width: 100%;
+
+    }
+
+    .binary-row {
+
+        grid-template-columns: repeat(4, minmax(56px, 1fr));
+
+        gap: .65rem;
+
+        width: 100%;
+
+    }
+
+    .binary-row div {
+
+        height: 60px;
+
+        font-size: 1rem;
+
+    }
+
+    .decrypt-flow {
+
+        width: 100%;
+
+    }
+
+    .math-row {
+
+        gap: .5rem;
+
+    }
+
+    .math-cell {
+
+        height: 52px;
+
+        font-size: .95rem;
+
+    }
+
+    .safe-message {
+
+        font-size: .9rem;
+
+    }
+
+    .footer {
+
+        margin-top: 80px;
+
+    }
+
+    .footer-container {
+
+        padding: 50px 0;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    :root {
+
+        --navbar-height: 64px;
+
+    }
+
+    .button {
+
+        padding: .85rem 1.25rem;
+
+        font-size: .95rem;
+
+    }
+
+    .padding-section .cells div {
+
+        width: 44px;
+
+        height: 44px;
+
+        font-size: .9rem;
+
+    }
+
+    .padding-section .padding-demo {
+
+        padding: 1.25rem;
+
+        gap: 1.5rem;
+
+    }
+
+    .binary-card {
+
+        padding: 1.5rem;
+
+        width: 100%;
+
+    }
+
+    .binary-row {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .binary-row div {
+
+        height: 52px;
+
+        font-size: .9rem;
+
+    }
+
+    .binary-card span {
+
+        font-size: 2.5rem;
+
+    }
+
+    .hero-tags div {
+
+        font-size: .8rem;
+
+        padding: .55rem .9rem;
+
+    }
+
+    .hero-content h1 {
+
+        font-size: clamp(1.75rem, 8vw, 2.4rem);
+
+    }
+
+    .decrypt-properties {
+
+        gap: 1rem;
+
+    }
+
+    .matrix {
+
+        grid-template-columns: repeat(4, 38px);
+
+        grid-template-rows: repeat(2, 38px);
+
+        gap: .3rem;
+
+    }
+
+    .matrix div {
+
+        font-size: .85rem;
+
+    }
+
+    .flow-arrow {
+
+        font-size: 1.5rem;
+
+    }
+
+    .complexity-icon {
+
+        width: 56px;
+
+        height: 56px;
+
+    }
+
+    .complexity-card h3 {
+
+        font-size: 1.2rem;
+
+    }
+
+    .modular-card h3 {
+
+        font-size: 1.1rem;
+
+    }
+
+    .workflow-card {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+    .encrypt-page,
+    .decrypt-page {
+
+        padding-top: 3.5rem;
+
+        padding-bottom: 2.5rem;
+
+    }
+
+    .mathematics-page,
+    .implementation-page {
+
+        gap: 4rem;
+
+        padding-block: 1.5rem 3rem;
+
+    }
+
+    .audit-step-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .step-number {
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: .9rem;
+
+    }
+
+    .hero-circle {
+
+        width: min(72vw, 260px);
+
+        height: min(72vw, 260px);
+
+    }
+
+    .hero-card {
+
+        position: relative;
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+    .hero-visual {
+
+        width: 100%;
+
+    }
+
+    .hero-highlights {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: .75rem;
+
+    }
+
+    .github-card,
+    .github-link {
+
+        width: 100%;
+
+    }
+
+    .footer-tech {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+    }
+
+}
