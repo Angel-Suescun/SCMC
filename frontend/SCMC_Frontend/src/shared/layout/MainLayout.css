@@ -16,4 +16,18 @@
 
     margin-top:var(--navbar-height);
 
+    width:100%;
+
+    min-width:0;
+
+}
+
+@media(max-width:480px){
+
+    .layout-content{
+
+        overflow-x:hidden;
+
+    }
+
 }

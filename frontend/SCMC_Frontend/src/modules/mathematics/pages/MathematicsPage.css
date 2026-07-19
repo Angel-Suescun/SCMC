@@ -21,3 +21,15 @@
     }
 
 }
+
+@media(max-width:480px){
+
+    .mathematics-page{
+
+        gap:4rem;
+
+        padding-block:1.5rem 3rem;
+
+    }
+
+}

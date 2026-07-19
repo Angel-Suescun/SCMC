@@ -42,7 +42,7 @@
 
     color:white;
 
-    font-size:2.2rem;
+    font-size:clamp(1.6rem, 4vw, 2.2rem);
 
 }
 
@@ -118,7 +118,25 @@
 
         grid-template-columns:1fr;
 
-        justify-items:start;
+        justify-items:stretch;
+
+        width:100%;
+
+    }
+
+    .modular-card{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .modular-section{
+
+        gap:1.5rem;
 
     }
 

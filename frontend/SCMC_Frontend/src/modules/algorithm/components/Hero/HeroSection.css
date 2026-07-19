@@ -174,7 +174,7 @@
 
 }
 
-@media(max-width:992px){
+@media(max-width:900px){
 
     .implementation-hero{
 
@@ -187,6 +187,16 @@
     .implementation-hero__visual{
 
         width:100%;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .implementation-hero{
+
+        gap:2rem;
 
     }
 

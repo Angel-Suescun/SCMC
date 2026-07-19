@@ -118,6 +118,18 @@
 
 }
 
+@media (max-width: 480px) {
+
+    .button {
+
+        padding: .85rem 1.25rem;
+
+        font-size: .95rem;
+
+    }
+
+}
+
 .button-spinner{
 
     width:18px;

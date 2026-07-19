@@ -38,7 +38,7 @@
 
     color:white;
 
-    font-size:2.2rem;
+    font-size:clamp(1.6rem, 4vw, 2.2rem);
 
 }
 
@@ -131,6 +131,24 @@
     .permutation-content{
 
         grid-template-columns:1fr;
+
+        gap:2rem;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .permutation-section{
+
+        gap:1.5rem;
+
+    }
+
+    .permutation-description code{
+
+        font-size:.95rem;
 
     }
 

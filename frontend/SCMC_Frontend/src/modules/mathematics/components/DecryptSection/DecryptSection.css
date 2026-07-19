@@ -40,7 +40,7 @@
 
     color:white;
 
-    font-size:2.2rem;
+    font-size:clamp(1.6rem, 4vw, 2.2rem);
 
 }
 
@@ -62,9 +62,11 @@
 
     gap:1rem;
 
+    width:100%;
+
 }
 
-.flow-card{
+.decrypt-flow-card{
 
     width:fit-content;
 
@@ -90,7 +92,7 @@
 
 }
 
-.flow-card h4{
+.decrypt-flow-card h4{
 
     color:white;
 
@@ -98,7 +100,7 @@
 
 }
 
-.flow-card span{
+.decrypt-flow-card span{
 
     color:white;
 
@@ -108,15 +110,17 @@
 
 }
 
-.flow-card code{
+.decrypt-flow-card code{
 
     color:var(--primary);
 
     font-size:1rem;
 
+    word-break:break-word;
+
 }
 
-.success{
+.decrypt-flow-card.success{
 
     border-color:rgba(0,245,255,.35);
 
@@ -124,7 +128,7 @@
 
 }
 
-.flow-arrow{
+.decrypt-flow-arrow{
 
     font-size:2rem;
 
@@ -134,7 +138,7 @@
 
 }
 
-.matrix{
+.decrypt-flow .matrix{
 
     display:grid;
 
@@ -146,7 +150,7 @@
 
 }
 
-.matrix div{
+.decrypt-flow .matrix div{
 
     display:flex;
 
@@ -212,19 +216,79 @@
 
 @media(max-width:900px){
 
+    .decrypt-header{
+
+        align-items:center;
+
+        text-align:center;
+
+        margin-inline:auto;
+
+    }
+
     .decrypt-properties{
 
         grid-template-columns:1fr;
 
-        justify-items:start;
+        justify-items:stretch;
+
+        width:100%;
 
     }
 
-    .matrix{
+    .property-card{
+
+        width:100%;
+
+    }
+
+    .decrypt-flow .matrix{
 
         grid-template-columns:repeat(4,42px);
 
         grid-template-rows:repeat(2,42px);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .decrypt-flow-arrow{
+
+        font-size:1.5rem;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .decrypt-section{
+
+        gap:1.5rem;
+
+    }
+
+    .decrypt-flow-card{
+
+        width:100%;
+
+    }
+
+    .decrypt-flow .matrix{
+
+        grid-template-columns:repeat(4,38px);
+
+        grid-template-rows:repeat(2,38px);
+
+        gap:.3rem;
+
+    }
+
+    .decrypt-flow .matrix div{
+
+        font-size:.85rem;
 
     }
 
