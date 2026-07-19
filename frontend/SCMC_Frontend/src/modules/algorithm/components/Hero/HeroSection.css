@@ -191,3 +191,35 @@
     }
 
 }
+
+@media(max-width:480px){
+
+    .implementation-hero__content{
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .implementation-hero__label{
+
+        margin-inline:auto;
+
+    }
+
+    .implementation-hero__tags{
+
+        justify-content:center;
+
+    }
+
+    .flow-node{
+
+        width:100%;
+
+        max-width:220px;
+
+    }
+
+}

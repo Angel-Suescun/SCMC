@@ -165,3 +165,20 @@
     }
 
 }
+
+@media(max-width:480px){
+
+    .complexity-value{
+
+        font-size:2.2rem;
+
+    }
+
+    .complexity-card,
+    .complexity-note{
+
+        padding:1.5rem;
+
+    }
+
+}

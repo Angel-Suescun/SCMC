@@ -35,3 +35,25 @@
     font-size:1.05rem;
 
 }
+
+@media (max-width: 768px) {
+
+    .section-title-container {
+
+        margin-bottom: 2.5rem;
+
+    }
+
+    .section-title-heading {
+
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+
+    }
+
+    .section-title-subtitle {
+
+        font-size: .95rem;
+
+    }
+
+}

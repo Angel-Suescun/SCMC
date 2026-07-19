@@ -37,3 +37,21 @@
     opacity:.35;
 
 }
+
+@media (max-width: 768px) {
+
+    .audit-timeline {
+
+        gap: 1.5rem;
+
+        margin-top: 2rem;
+
+    }
+
+    .timeline-line {
+
+        left: 16px;
+
+    }
+
+}

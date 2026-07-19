@@ -73,3 +73,15 @@
     }
 
 }
+
+@media(max-width:480px){
+
+    .workflow-card{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+
+}
