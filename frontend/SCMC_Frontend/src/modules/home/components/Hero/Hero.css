@@ -202,7 +202,7 @@
 
 }
 
-.hero-visual{
+.hero .hero-visual{
 
     position:relative;
 
@@ -212,9 +212,11 @@
 
     align-items:center;
 
+    width:100%;
+
 }
 
-.hero-circle{
+.hero .hero-circle{
 
     width:min(100%, 420px);
 
@@ -240,13 +242,23 @@
 
 }
 
-.hero-card{
+.hero .hero-card{
 
     position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%, -50%);
+
+    z-index:1;
 
     display:flex;
 
     flex-direction:column;
+
+    align-items:center;
 
     gap:1rem;
 
@@ -254,13 +266,17 @@
 
     width:min(100%, 320px);
 
-    max-width:100%;
+    max-width:calc(100% - 2rem);
+
+    box-sizing:border-box;
+
+    text-align:center;
 
     color:var(--text-primary);
 
 }
 
-.hero-card svg{
+.hero .hero-card svg{
 
     color:var(--color-primary);
 
@@ -306,11 +322,49 @@
 
     }
 
-    .hero-visual{
+    .hero .hero-visual{
 
-        margin-top:4rem;
+        margin-top:2rem;
 
-        width:100%;
+        min-height:320px;
+
+        padding-inline:0;
+
+    }
+
+    .hero .hero-circle{
+
+        position:absolute;
+
+        top:50%;
+
+        left:50%;
+
+        transform:translate(-50%, -50%);
+
+        max-width:320px;
+
+        max-height:320px;
+
+    }
+
+    .hero .hero-card{
+
+        position:relative;
+
+        left:auto;
+
+        top:auto;
+
+        transform:none;
+
+        width:min(100%, 300px);
+
+        max-width:100%;
+
+        margin-inline:auto;
+
+        padding:1.5rem;
 
     }
 
@@ -320,43 +374,29 @@
 
     }
 
-    .hero-circle{
-
-        max-width:320px;
-
-        max-height:320px;
-
-    }
-
 }
 
 @media(max-width:480px){
 
-    .hero-circle{
+    .hero .hero-visual{
 
-        width:min(72vw,280px);
-
-        height:min(72vw,280px);
+        min-height:280px;
 
     }
 
-    .hero-card{
+    .hero .hero-circle{
 
-        position:relative;
+        width:min(72vw, 280px);
 
-        min-width:0;
-
-        width:100%;
-
-        max-width:100%;
-
-        padding:1.5rem;
+        height:min(72vw, 280px);
 
     }
 
-    .hero-visual{
+    .hero .hero-card{
 
         width:100%;
+
+        padding:1.25rem 1rem;
 
     }
 
