@@ -76,6 +76,26 @@ public class ValidationServiceTest {
   @Test
   public void shouldValidateBlockSizeWhenBlockSizeIsValid(){
 
-    assertDoesNotThrow(() -> validationService.validateBlockSize(3, 10));
+    assertDoesNotThrow(() -> validationService.validateBlockSize(4, 12));
+
+  }
+
+  
+
+  @Test
+  public void shouldThrowExceptionWhenMessageLengthIsNotMultipleOfBlockSize(){
+
+    IllegalArgumentException exception = assertThrows(
+        IllegalArgumentException.class,
+        () -> validationService.validateMessageLengthIsMultipleOfBlockSize(
+            12,
+            15
+        )
+    );
+
+    assertEquals(
+        "La longitud del mensaje cifrado debe ser multiplo del tamano del bloque",
+        exception.getMessage()
+    );
   }
 }
