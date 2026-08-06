@@ -76,10 +76,66 @@ public class ValidationServiceTest {
   @Test
   public void shouldValidateBlockSizeWhenBlockSizeIsValid(){
 
-    assertDoesNotThrow(() -> validationService.validateBlockSize(4, 12));
+    Integer blockSize = 4;
+    Integer messageLength = 12;
+
+    assertDoesNotThrow(() -> validationService.validateBlockSize(blockSize, messageLength));
 
   }
 
+  @Test
+  public void shouldThrowExceptionWhenBlockSizeIsNull() {
+
+    Integer blockSize = null;
+    Integer messageLength = 10;
+
+    IllegalArgumentException exception = assertThrows(
+        IllegalArgumentException.class,
+        () -> validationService.validateBlockSize(blockSize, messageLength)
+    );
+
+    assertEquals("El tamaño del bloque no puede ser nulo", exception.getMessage());
+  }
+
+  @Test
+  public void shouldThrowExceptionWhenBlockSizeIsLessThanTwo(){
+
+    Integer blockSize = 1;
+    Integer messageLength = 10;
+
+    IllegalArgumentException exception = assertThrows(
+        IllegalArgumentException.class,
+        () -> validationService.validateBlockSize(blockSize, messageLength)
+    );
+
+    assertEquals("El tamaño del bloque debe ser mayor o igual a 2", exception.getMessage());
+  }
+
+  @Test
+  public void shouldThrowExceptionWhenBlockSizeIsGreaterThanMessageLength(){
+
+    Integer blockSize = 15;
+    Integer messageLength = 10;
+
+    IllegalArgumentException exception = assertThrows(
+        IllegalArgumentException.class,
+        () -> validationService.validateBlockSize(blockSize, messageLength)
+    );
+
+    assertEquals(
+        "El tamaño del bloque no puede ser mayor que la longitud del mensaje",
+        exception.getMessage()
+    );
+  }
+
+  @Test
+  public void shouldValidateBlockSizeWhenItIsEqualToMessageLength(){
+
+    Integer blockSize = 10;
+    Integer messageLength = 10;
+
+    assertDoesNotThrow(() -> validationService.validateBlockSize(blockSize, messageLength));
+  }
   
 
   @Test
