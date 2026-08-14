@@ -239,18 +239,11 @@ POST /api/encrypt
 {
   "message": "Hola Mundo",
   "blockSize": 4,
-  "permutation": [1,3,2,4],
+  "permutation": [1,3,2,0],
   "shift": 5
 }
 ```
 
-### Ejemplo de respuesta
-
-```json
-{
-  "encryptedMessage": "..."
-}
-```
 
 ---
 
@@ -320,10 +313,15 @@ Su propósito es:
 
 ---
 
-# 👥 Equipo de Desarrollo
+# 👨‍💻 Autor
 
-**SCMC — Sistema de Cifrado Modular por Composición**
+**Ángel David Suescun Romero**
 
-Proyecto académico desarrollado para la asignatura de **Matemáticas Discretas**.
+Estudiante de Ingeniería de Sistemas y Computación
+
 
 **Universidad Nacional de Colombia**
+
+# 📄 Licencia
+
+Proyecto desarrollado con fines académicos para la asignatura **Matemáticas Discretas II**.

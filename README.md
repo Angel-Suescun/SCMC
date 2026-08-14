@@ -156,7 +156,7 @@ SCMC
 ## Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU-USUARIO/scmc.git
+git clone https://github.com/Angel-Suescun/SCMC.git
 ```
 
 ---
@@ -179,7 +179,7 @@ http://localhost:8080
 ## Frontend
 
 ```bash
-cd frontend
+cd frontend/SCMC_Frontend
 npm install
 npm run dev
 ```
@@ -206,7 +206,7 @@ Ejemplo
 {
   "message": "Hola Mundo",
   "blockSize": 4,
-  "permutation": [1,3,2,4],
+  "permutation": [1,3,2,0],
   "shift": 5
 }
 ```
