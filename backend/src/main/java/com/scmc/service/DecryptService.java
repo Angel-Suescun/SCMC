@@ -1,6 +1,5 @@
 package com.scmc.service;
 
-import com.scmc.domain.builder.DecryptResponseBuilder;
 import com.scmc.domain.dto.DecryptRequest;
 import com.scmc.domain.dto.DecryptResponse;
 import com.scmc.domain.dto.audit.AuditStep;
@@ -71,15 +70,15 @@ public class DecryptService {
         normalizedShift
     );
 
-    return new DecryptResponseBuilder()
-        .setEncryptedMessage(request.encryptedMessage())
-        .setPermutedMessage(permutedMessage)
-        .setPaddedMessage(paddedMessage)
-        .setDecryptedMessage(decryptedMessage)
-        .setBlockSize(request.blockSize())
-        .setPermutation(request.permutation())
-        .setShift(normalizedShift)
-        .setAudit(auditSteps)
-        .build();
+    return new DecryptResponse(
+        request.encryptedMessage(),
+        permutedMessage,
+        paddedMessage,
+        decryptedMessage,
+        request.blockSize(),
+        request.permutation(),
+        normalizedShift,
+        auditSteps
+    );
   }
 }

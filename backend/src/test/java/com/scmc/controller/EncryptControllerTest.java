@@ -5,7 +5,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.scmc.domain.builder.EncryptResponseBuilder;
 import com.scmc.domain.dto.EncryptRequest;
 import com.scmc.domain.dto.EncryptResponse;
 import com.scmc.domain.dto.constants.CipherConstants;
@@ -64,16 +63,16 @@ public class EncryptControllerTest {
     String permutedMessage = "oHla" + CipherConstants.PADDING_CHARACTER;
     String encryptedMessage = "Krod" + CipherConstants.PADDING_CHARACTER;
 
-    EncryptResponse encryptResponse = new EncryptResponseBuilder()
-        .setOriginalMessage(message)
-        .setPaddedMessage(paddedMessage)
-        .setPermutedMessage(permutedMessage)
-        .setEncryptedMessage(encryptedMessage)
-        .setBlockSize(blockSize)
-        .setPermutation(permutation)
-        .setShift(shift)
-        .setAudit(List.of())
-        .build();
+    EncryptResponse encryptResponse = new EncryptResponse(
+        message,
+        paddedMessage,
+        permutedMessage,
+        encryptedMessage,
+        blockSize,
+        permutation,
+        shift,
+        List.of()
+    );
 
     when(encryptService.encrypt(encryptRequest)).thenReturn(encryptResponse);
 

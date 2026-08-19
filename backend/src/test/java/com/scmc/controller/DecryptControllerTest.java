@@ -6,7 +6,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.scmc.domain.builder.DecryptResponseBuilder;
 import com.scmc.domain.dto.DecryptRequest;
 import com.scmc.domain.dto.DecryptResponse;
 import com.scmc.domain.dto.constants.CipherConstants;
@@ -63,16 +62,16 @@ public class DecryptControllerTest {
     String paddedMessage = "Hola" + CipherConstants.PADDING_CHARACTER;
     String decryptedMessage = "Hola";
 
-    DecryptResponse response = new DecryptResponseBuilder()
-        .setEncryptedMessage(encryptedMessage)
-        .setPermutedMessage(permutedMessage)
-        .setPaddedMessage(paddedMessage)
-        .setDecryptedMessage(decryptedMessage)
-        .setBlockSize(blockSize)
-        .setPermutation(permutation)
-        .setShift(shift)
-        .setAudit(List.of())
-        .build();
+    DecryptResponse response = new DecryptResponse(
+        encryptedMessage,
+        permutedMessage,
+        paddedMessage,
+        decryptedMessage,
+        blockSize,
+        permutation,
+        shift,
+        List.of()
+    );
 
     when(decryptService.decrypt(any(DecryptRequest.class))).thenReturn(response);
 
