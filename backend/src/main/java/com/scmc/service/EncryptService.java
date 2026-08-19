@@ -1,6 +1,6 @@
 package com.scmc.service;
 
-import com.scmc.domain.builder.EncryptResponseBuilder;
+import com.scmc.domain.dto.DecryptResponse;
 import com.scmc.domain.dto.EncryptRequest;
 import com.scmc.domain.dto.EncryptResponse;
 import com.scmc.domain.dto.audit.AuditStep;
@@ -75,16 +75,16 @@ public class EncryptService {
         normalizedShift
     );
 
-    return new EncryptResponseBuilder()
-        .setOriginalMessage(request.message())
-        .setPaddedMessage(paddedMessage)
-        .setPermutedMessage(permutedMessage)
-        .setEncryptedMessage(encryptedMessage)
-        .setBlockSize(request.blockSize())
-        .setPermutation(request.permutation())
-        .setShift(normalizedShift)
-        .setAudit(audit)
-        .build();
+    return new EncryptResponse(
+        request.message(),
+        paddedMessage,
+        permutedMessage,
+        encryptedMessage,
+        request.blockSize(),
+        request.permutation(),
+        normalizedShift,
+        audit
+    );
   }
 }
 

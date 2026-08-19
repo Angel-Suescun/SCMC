@@ -95,14 +95,14 @@ public class DecryptServiceTest {
 
     DecryptResponse response = decryptService.decrypt(request);
 
-    assertEquals(encryptedMessage, response.getEncryptedMessage());
-    assertEquals(permutedMessage, response.getPermutedMessage());
-    assertEquals(paddedMessage, response.getPaddedMessage());
-    assertEquals(decryptedMessage, response.getDecryptedMessage());
-    assertEquals(request.blockSize(), response.getBlockSize());
-    assertEquals(request.permutation(), response.getPermutation());
-    assertEquals(normalizedShift, response.getShift());
-    assertEquals(auditSteps, response.getAudit());
+    assertEquals(encryptedMessage, response.encryptedMessage());
+    assertEquals(permutedMessage, response.permutedMessage());
+    assertEquals(paddedMessage, response.paddedMessage());
+    assertEquals(decryptedMessage, response.decryptedMessage());
+    assertEquals(request.blockSize(), response.blockSize());
+    assertEquals(request.permutation(), response.permutation());
+    assertEquals(normalizedShift, response.shift());
+    assertEquals(auditSteps, response.audit());
 
     verify(validationService).validateDecryptRequest(request);
   }

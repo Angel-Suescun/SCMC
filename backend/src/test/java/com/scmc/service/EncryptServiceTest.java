@@ -106,14 +106,14 @@ public class EncryptServiceTest {
 
     EncryptResponse response = encryptService.encrypt(request);
 
-    assertEquals(message, response.getOriginalMessage());
-    assertEquals(paddedMessage, response.getPaddedMessage());
-    assertEquals(permutedMessage, response.getPermutedMessage());
-    assertEquals(encryptedMessage, response.getEncryptedMessage());
-    assertEquals(request.blockSize(), response.getBlockSize());
-    assertEquals(request.permutation(), response.getPermutation());
-    assertEquals(normalizedShift, response.getShift());
-    assertEquals(auditSteps, response.getAudit());
+    assertEquals(message, response.originalMessage());
+    assertEquals(paddedMessage, response.paddedMessage());
+    assertEquals(permutedMessage, response.permutedMessage());
+    assertEquals(encryptedMessage, response.encryptedMessage());
+    assertEquals(request.blockSize(), response.blockSize());
+    assertEquals(request.permutation(), response.permutation());
+    assertEquals(normalizedShift, response.shift());
+    assertEquals(auditSteps, response.audit());
 
     verify(validationService).validateEncryptRequest(request);
   }
