@@ -1,6 +1,5 @@
 package com.scmc.service.audit;
 
-import com.scmc.domain.builder.AuditStepBuilder;
 import com.scmc.domain.dto.audit.AuditStep;
 import com.scmc.domain.dto.audit.AuditType;
 import org.springframework.stereotype.Service;
@@ -15,14 +14,13 @@ public class ModularAuditService {
     Integer shift
   ) {
 
-    return new AuditStepBuilder()
-        .setStepNumber(counterService.incrementStepCounter())
-        .setTitle(AuditType.DESPLAZAMIENTO_MODULAR)
-        .setDescription(buildDescriptionForEncrypt(shift))
-        .setInput(permutedMessage)
-        .setOutput(encryptedMessage)
-        .build();
-
+    return new AuditStep(
+        counterService.incrementStepCounter(),
+        AuditType.DESPLAZAMIENTO_MODULAR,
+        buildDescriptionForEncrypt(shift),
+        permutedMessage,
+        encryptedMessage
+    );
 
   }
 
@@ -33,13 +31,13 @@ public class ModularAuditService {
     Integer shift
   ) {
 
-    return new AuditStepBuilder()
-        .setStepNumber(counterService.incrementStepCounter())
-        .setTitle(AuditType.DESPLAZAMIENTO_MODULAR_INVERSO)
-        .setDescription(buildDescriptionForDecrypt(shift))
-        .setInput(encryptedMessage)
-        .setOutput(decryptedMessage)
-        .build();
+    return new AuditStep(
+        counterService.incrementStepCounter(),
+        AuditType.DESPLAZAMIENTO_MODULAR_INVERSO,
+        buildDescriptionForDecrypt(shift),
+        encryptedMessage,
+        decryptedMessage
+    );
   }
 
   private String buildDescriptionForEncrypt(Integer shift) {

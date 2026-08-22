@@ -1,6 +1,5 @@
 package com.scmc.service.audit;
 
-import com.scmc.domain.builder.AuditStepBuilder;
 import com.scmc.domain.dto.audit.AuditStep;
 import com.scmc.domain.dto.audit.AuditType;
 import com.scmc.domain.dto.constants.CipherConstants;
@@ -14,13 +13,14 @@ public class PaddingAuditService{
       String originalMessage,
       String paddedMessage
   ) {
-    return new AuditStepBuilder()
-        .setStepNumber(counterService.incrementStepCounter())
-        .setTitle(AuditType.RELLENO)
-        .setDescription(buildDescriptionForEncrypt())
-        .setInput(originalMessage)
-        .setOutput(paddedMessage)
-        .build();
+    return new AuditStep(
+        counterService.incrementStepCounter(),
+        AuditType.RELLENO,
+        buildDescriptionForEncrypt(),
+        originalMessage,
+        paddedMessage
+    );
+
   }
 
   public AuditStep createDecryptAuditStep(
@@ -28,13 +28,14 @@ public class PaddingAuditService{
       String paddedMessage,
       String originalMessage
   ) {
-    return new AuditStepBuilder()
-        .setStepNumber(counterService.incrementStepCounter())
-        .setTitle(AuditType.RELLENO)
-        .setDescription(buildDescriptionForDecrypt())
-        .setInput(paddedMessage)
-        .setOutput(originalMessage)
-        .build();
+    return new AuditStep(
+        counterService.incrementStepCounter(),
+        AuditType.RELLENO,
+        buildDescriptionForDecrypt(),
+        paddedMessage,
+        originalMessage
+    );
+
   }
 
   private String buildDescriptionForEncrypt() {
