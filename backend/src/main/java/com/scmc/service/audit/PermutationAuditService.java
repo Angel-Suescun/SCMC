@@ -1,6 +1,5 @@
 package com.scmc.service.audit;
 
-import com.scmc.domain.builder.AuditStepBuilder;
 import com.scmc.domain.dto.audit.AuditStep;
 import com.scmc.domain.dto.audit.AuditType;
 import java.util.List;
@@ -17,13 +16,13 @@ public class PermutationAuditService {
     List<Integer> permutation
 
   ) {
-    return new AuditStepBuilder()
-        .setStepNumber(counterService.incrementStepCounter())
-        .setTitle(AuditType.PERMUTACION)
-        .setDescription(buildDescriptionForEncrypt(blockSize, permutation))
-        .setInput(paddedMessage)
-        .setOutput(permutedMessage)
-        .build();
+    return new AuditStep(
+        counterService.incrementStepCounter(),
+        AuditType.PERMUTACION,
+        buildDescriptionForEncrypt(blockSize, permutation),
+        paddedMessage,
+        permutedMessage
+    );
   }
 
   public AuditStep createDecryptAuditStep(
@@ -33,13 +32,13 @@ public class PermutationAuditService {
     Integer blockSize,
     List<Integer> permutation
   ) {
-    return new AuditStepBuilder()
-        .setStepNumber(counterService.incrementStepCounter())
-        .setTitle(AuditType.DESPERMUTACION)
-        .setDescription(buildDescriptionForDecrypt(blockSize, permutation))
-        .setInput(permutedMessage)
-        .setOutput(paddedMessage)
-        .build();
+    return new AuditStep(
+        counterService.incrementStepCounter(),
+        AuditType.DESPERMUTACION,
+        buildDescriptionForDecrypt(blockSize, permutation),
+        permutedMessage,
+        paddedMessage
+    );
   }
 
   private String buildDescriptionForEncrypt(Integer blockSize, List<Integer> permutation) {

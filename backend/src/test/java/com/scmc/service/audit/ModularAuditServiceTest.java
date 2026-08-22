@@ -40,18 +40,18 @@ public class ModularAuditServiceTest {
         shift
     );
 
-    assertEquals(1, result.getStepNumber());
-    assertEquals(AuditType.DESPLAZAMIENTO_MODULAR, result.getTitle());
+    assertEquals(1, result.stepNumber());
+    assertEquals(AuditType.DESPLAZAMIENTO_MODULAR, result.title());
 
 
     assertEquals(
         "Se ha aplicado un desplazamiento modular de 3 posiciones "
             + "a cada carácter del mensaje permutado.",
-        result.getDescription()
+        result.description()
     );
 
-    assertEquals(permutedMessage, result.getInput());
-    assertEquals(encryptedMessage, result.getOutput());
+    assertEquals(permutedMessage, result.input());
+    assertEquals(encryptedMessage, result.output());
 
   }
 
@@ -71,17 +71,17 @@ public class ModularAuditServiceTest {
         shift
     );
 
-    assertEquals(2, result.getStepNumber());
-    assertEquals(AuditType.DESPLAZAMIENTO_MODULAR_INVERSO, result.getTitle());
+    assertEquals(2, result.stepNumber());
+    assertEquals(AuditType.DESPLAZAMIENTO_MODULAR_INVERSO, result.title());
 
     assertEquals(
         "Se aplicó el desplazamiento modular inverso de 3 posiciones "
             + "a cada carácter del mensaje.",
-        result.getDescription()
+        result.description()
     );
 
-    assertEquals(encryptedMessage, result.getInput());
-    assertEquals(decryptedMessage, result.getOutput());
+    assertEquals(encryptedMessage, result.input());
+    assertEquals(decryptedMessage, result.output());
 
   }
 }

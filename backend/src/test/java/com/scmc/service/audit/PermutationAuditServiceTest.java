@@ -47,17 +47,17 @@ public class PermutationAuditServiceTest {
         permutation
     );
 
-    assertEquals(1, result.getStepNumber());
-    assertEquals(AuditType.PERMUTACION, result.getTitle());
+    assertEquals(1, result.stepNumber());
+    assertEquals(AuditType.PERMUTACION, result.title());
 
     assertEquals(
         "Se ha aplicado una permutación de tamaño de bloque 4 al mensaje,"
             + " utilizando la siguiente permutación: [2, 4, 3, 1].",
-        result.getDescription()
+        result.description()
     );
 
-    assertEquals(paddedMessage, result.getInput());
-    assertEquals(permutedMessage, result.getOutput());
+    assertEquals(paddedMessage, result.input());
+    assertEquals(permutedMessage, result.output());
 
     verify(counterService).incrementStepCounter();
   }
@@ -81,17 +81,17 @@ public class PermutationAuditServiceTest {
         permutation
     );
 
-    assertEquals(2, result.getStepNumber());
-    assertEquals(AuditType.DESPERMUTACION, result.getTitle());
+    assertEquals(2, result.stepNumber());
+    assertEquals(AuditType.DESPERMUTACION, result.title());
 
     assertEquals(
         "Se dividió el mensaje en bloques de 4 caracteres"
             + " y se aplicó la permutación inversa correspondiente [2, 4, 3, 1] a cada bloque.",
-        result.getDescription()
+        result.description()
     );
 
-    assertEquals(permutedMessage, result.getInput());
-    assertEquals(paddedMessage, result.getOutput());
+    assertEquals(permutedMessage, result.input());
+    assertEquals(paddedMessage, result.output());
 
   }
 

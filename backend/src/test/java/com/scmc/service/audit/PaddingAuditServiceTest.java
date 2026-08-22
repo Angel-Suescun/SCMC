@@ -40,20 +40,20 @@ public class PaddingAuditServiceTest {
         paddedMessage
     );
 
-    assertEquals(1, result.getStepNumber());
-    assertEquals(AuditType.RELLENO, result.getTitle());
+    assertEquals(1, result.stepNumber());
+    assertEquals(AuditType.RELLENO, result.title());
 
     assertEquals(
         String.format(
             "Se completó el último bloque utilizando el carácter de relleno '%c' cuando fue necesario.",
             CipherConstants.PADDING_CHARACTER
         ),
-        result.getDescription()
+        result.description()
     );
 
 
-    assertEquals(originalMessage, result.getInput());
-    assertEquals(paddedMessage, result.getOutput());
+    assertEquals(originalMessage, result.input());
+    assertEquals(paddedMessage, result.output());
 
     verify(counterService).incrementStepCounter();
   }
@@ -72,19 +72,19 @@ public class PaddingAuditServiceTest {
         originalMessage
     );
 
-    assertEquals(2, result.getStepNumber());
-    assertEquals(AuditType.RELLENO, result.getTitle());
+    assertEquals(2, result.stepNumber());
+    assertEquals(AuditType.RELLENO, result.title());
 
     assertEquals(
         String.format(
             "Se ha eliminado el relleno del mensaje utilizando el carácter '%c'.",
             CipherConstants.PADDING_CHARACTER
         ),
-        result.getDescription()
+        result.description()
     );
 
-    assertEquals(paddedMessage, result.getInput());
-    assertEquals(originalMessage, result.getOutput());
+    assertEquals(paddedMessage, result.input());
+    assertEquals(originalMessage, result.output());
 
     verify(counterService).incrementStepCounter();
   }
